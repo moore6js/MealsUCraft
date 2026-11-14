@@ -1,18 +1,210 @@
 :root {
   font-family: Arial, sans-serif;
-  color: #1f2937;
-  background: #f3f4f6;
+  color: #222;
 }
 
 body {
   margin: 0;
 }
 
-main {
-  max-width: 800px;
-  margin: 4rem auto;
-  padding: 2rem;
-  background: white;
-  border-radius: 0.5rem;
-  box-shadow: 0 2px 8px rgb(0 0 0 / 10%);
+#root {
+  height: 100vh;
+}
+
+.demo-page {
+  display: flex;
+  height: 100%;
+  max-width: 1400px;
+  flex-direction: column;
+  margin: 0 auto;
+  padding: 12px;
+}
+
+.page-header {
+  flex: 0 0 auto;
+  margin-bottom: 10px;
+}
+
+.page-header h1 {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+.page-header p {
+  margin: 4px 0;
+}
+
+.demo-layout {
+  display: grid;
+  min-height: 0;
+  flex: 1;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+  gap: 12px;
+}
+
+.right-column {
+  display: grid;
+  min-height: 0;
+  grid-template-rows: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 12px;
+}
+
+.panel {
+  display: flex;
+  min-height: 0;
+  flex-direction: column;
+  margin: 0;
+  padding: 10px;
+  overflow: hidden;
+  border: 1px solid #ccc;
+}
+
+.section-heading {
+  flex: 0 0 auto;
+  margin-bottom: 8px;
+}
+
+.section-heading h2,
+.food-card h3,
+.created-meal h3,
+.current-totals h3 {
+  margin: 0;
+}
+
+.meal-name-field {
+  display: grid;
+  gap: 4px;
+  margin-bottom: 8px;
+}
+
+.meal-name-field input {
+  width: 100%;
+  min-width: 0;
+}
+
+.food-list,
+.created-meal-list {
+  display: grid;
+  min-height: 0;
+  flex: 1;
+  gap: 6px;
+  overflow-y: auto;
+}
+
+.food-list {
+  grid-template-rows: repeat(3, minmax(0, 1fr));
+}
+
+.food-card,
+.created-meal {
+  min-height: 0;
+  padding: 8px;
+  overflow: auto;
+  border: 1px solid #ccc;
+}
+
+.food-card-heading {
+  align-items: center;
+}
+
+.food-card h3,
+.created-meal h3 {
+  font-size: 1rem;
+}
+
+.food-card p,
+.created-meal p {
+  margin: 4px 0;
+}
+
+.serving-size,
+.selected-calories {
+  display: block;
+}
+
+.nutrition-summary {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 4px;
+  margin: 6px 0;
+}
+
+.nutrition-summary dt {
+  font-size: 0.8rem;
+}
+
+.nutrition-summary dd {
+  overflow-wrap: anywhere;
+  font-size: 0.85rem;
+}
+
+.food-details {
+  font-size: 0.85rem;
+}
+
+.section-heading,
+.food-card-heading,
+.selected-list li {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.selected-list {
+  min-height: 0;
+  flex: 1;
+  margin: 0;
+  padding-left: 20px;
+  overflow-y: auto;
+}
+
+.quantity-control {
+  display: flex;
+  gap: 8px;
+}
+
+.notice,
+.empty-message,
+.loading-message {
+  margin: 12px 0;
+}
+
+.current-totals {
+  flex: 0 0 auto;
+  margin-top: auto;
+}
+
+.create-button {
+  flex: 0 0 auto;
+}
+
+@media (max-width: 760px) {
+  #root {
+    height: auto;
+    min-height: 100vh;
+  }
+
+  .demo-page {
+    height: auto;
+  }
+
+  .demo-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .right-column {
+    grid-template-rows: auto auto;
+  }
+
+  .panel {
+    overflow: visible;
+  }
+
+  .food-list {
+    grid-template-rows: none;
+  }
+
+  .food-card,
+  .created-meal {
+    overflow: visible;
+  }
 }
