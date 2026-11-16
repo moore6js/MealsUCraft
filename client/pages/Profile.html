@@ -1,67 +1,170 @@
 <!DOCTYPE html>
-
 <html lang="en">
-	<head>
-		<meta charset="utf-8">
-		<title>Profile</title>
-		<meta name="description" content="">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<link href="MUC.css" rel="stylesheet">
-		<link rel="icon" type="image/png" href="favicon.png">
-	</head>
+<head>
+    <meta charset="utf-8">
+    <title>MealsUCraft - Profile</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="MUC.css" rel="stylesheet">
+    <link rel="icon" type="image/png" href="favicon.png">
+</head>
 
-	<body>
-		<div id="wrapper">
-		<header>
-			<img class="logo" src="MUC_Logo.svg" alt="Meals U Craft Logo"
-			<nav>
-				<ul class="nav__links">
-					<li><a href="index.html">Home</a></li>
-					<li><a href="Menu.html">Menu</a></li>
-					<li><a href="Explore.html">Explore</a></li>
-					<li><a href="DiningHalls.html">Dining Halls</a></li>
-					<li><a href="Profile.html">Profile</a></li>
-				</ul>
-			</nav>
-		</header>
-		</div>
-		
-		<h1>My Profile</h1>
-		<div class="container">
-			<h2>Student Name</h2>
-			<p>email address</p>
-			<p>university name</p>
-			<p>Edit Profile</p>
-		</div>
-		
-		<div class="container">
-			<h2>Dietary Preferences</h2>
-			<h2>Allergens</h2>
-			<h2>Nutrition Goals</h2>
-			<p>Save Preferences</p>
-		</div>		
-		
-		<div class="container">
-			<h2>My Activity</h2>
-			<p>Saved Meals</p>
-			<p>Favorites</p>
-			<p>Meals Logged</p>
-		</div>	
-		
-		<div class="container">
-			<h2>Account Settings</h2>
-			<p>Privacy Settings</p>
-			<p>Notifiacation Preferences</p>
-			<p>Sign Out</p>
-		</div>
-		
-		<div class="container">
-			<h2>Recent Meal History</h2>
-			<p>View All History</p>
-			<p>Protein Bowl</p>
-			<p>Veggie Plate</p>
-			<p>Chicken Wrap</p>
-		</div>
-		
-	</body>
+<body>
+<div id="wrapper">
+
+    <!-- Navigation -->
+    <header>
+        <img class="logo" src="MUC_Logo.svg" alt="Meals U Craft Logo">
+
+        <nav>
+            <ul class="nav__links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="Menu.html">Menu</a></li>
+                <li><a href="Explore.html">Explore</a></li>
+                <li><a href="DiningHalls.html">Dining Halls</a></li>
+                <li><a class="active" href="Profile.html">Profile</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h1>My Profile</h1>
+
+        <!-- Student Profile -->
+        <div class="container profile-card">
+
+            <div class="avatar">UC</div>
+
+            <div class="profile-info">
+                <h2>Student Name</h2>
+                <p>student@uc.edu</p>
+                <p>University of Cincinnati</p>
+            </div>
+
+            <button type="button" class="edit-btn">Edit Profile</button>
+        </div>
+
+        <!-- Two Column Layout -->
+        <div class="dashboard-grid">
+
+            <!-- Left Column -->
+            <div class="container dietary-card">
+                <h2>Dietary Preferences</h2>
+
+                <div class="form-group">
+                    <label for="diet">Dietary Restrictions</label>
+                    <select id="diet">
+                        <option>Vegetarian</option>
+                        <option>Vegan</option>
+                        <option>Gluten Free</option>
+                        <option>None</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="allergens">Allergens</label>
+                    <select id="allergens">
+                        <option>None selected</option>
+                        <option>Peanuts</option>
+                        <option>Dairy</option>
+                        <option>Shellfish</option>
+                        <option>Eggs</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="nutrition">Nutrition Goals</label>
+                    <select id="nutrition">
+                        <option>High Protein</option>
+                        <option>Low Carb</option>
+                        <option>Weight Management</option>
+                        <option>Balanced Diet</option>
+                    </select>
+                </div>
+
+                <button type="button" class="save-btn">
+                    Save Preferences
+                </button>
+            </div>
+
+            <!-- Right Column -->
+            <div class="right-column">
+
+                <!-- My Activity -->
+                <div class="container activity-card">
+                    <h2>My Activity</h2>
+
+                    <div class="activity-stats">
+                        <div>
+                            <h3>12</h3>
+                            <p>Saved Meals</p>
+                        </div>
+
+                        <div>
+                            <h3>8</h3>
+                            <p>Favorites</p>
+                        </div>
+
+                        <div>
+                            <h3>24</h3>
+                            <p>Meals Logged</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Account Settings -->
+                <div class="container settings-card">
+                    <h2>Account Settings</h2>
+
+                    <div class="settings-row">
+                        <span>Privacy Settings</span>
+                        <span>&rsaquo;</span>
+                    </div>
+
+                    <div class="settings-row">
+                        <span>Notification Preferences</span>
+                        <span>&rsaquo;</span>
+                    </div>
+
+                    <div class="settings-row sign-out">
+                        <span>Sign Out</span>
+                        <span>&rsaquo;</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Recent Meal History -->
+        <div class="container history-card">
+
+            <div class="history-header">
+                <h2>Recent Meal History</h2>
+                <a href="#">View All History &rarr;</a>
+            </div>
+
+            <div class="meal-grid">
+
+                <div class="meal-item">
+                    <h3>Protein Bowl</h3>
+                    <p>Dining Hall A</p>
+                    <span>Today</span>
+                </div>
+
+                <div class="meal-item">
+                    <h3>Veggie Plate</h3>
+                    <p>Dining Hall B</p>
+                    <span>Yesterday</span>
+                </div>
+
+                <div class="meal-item">
+                    <h3>Chicken Wrap</h3>
+                    <p>Dining Hall C</p>
+                    <span>Oct 14</span>
+                </div>
+
+            </div>
+        </div>
+
+    </main>
+</div>
+</body>
 </html>

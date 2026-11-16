@@ -1,97 +1,235 @@
+
 <!DOCTYPE html>
-
 <html lang="en">
-	<head>
-		<meta charset="utf-8">
-		<title>Menu</title>
-		<meta name="description" content="">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<link href="MUC.css" rel="stylesheet">
-		<link rel="icon" type="image/png" href="favicon.png">
-	</head>
+<head>
+    <meta charset="utf-8">
+    <title>MealsUCraft - Menu</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-	<body>
-		<div id="wrapper">
-		<header>
-			<img class="logo" src="MUC_Logo.svg" alt="Meals U Craft Logo"
-			<nav>
-				<ul class="nav__links">
-					<li><a href="index.html">Home</a></li>
-					<li><a href="Menu.html">Menu</a></li>
-					<li><a href="Explore.html">Explore</a></li>
-					<li><a href="DiningHalls.html">Dining Halls</a></li>
-					<li><a href="Profile.html">Profile</a></li>
-				</ul>
-			</nav>
-		</header>
-		</div>
-		
-		<div class="container">
-			<h1>What are you craving today?</h1>
-			<p>Discover dining options, build meals, and track our nutrition.</p>
-			<p>Search dining halls, food, or meals...</p>
-			<h1>Build a Meal</h1>
-			<h2>High Protein</h2>
-			<h2>Vegetarian</h2>
-			<h2>Quick Bites</h2>
-			<h2>AI Meal Ideas</h2>
-			<h1>Recommended for You</h1>
-		</div>
-		
-		<div class="container">
-			<h2>Protein Bowl</h2>
-			<p>650 cal | 45g protein</p>
-			<p>View Meal --></p>
-		</div>
-		
-		<div class="container">
-			<h2>Veggie Plate</h2>
-			<p>520 cal | 22g protein</p>
-			<p>View Meal --></p>
-		</div>	
-		
-		<div class="container">
-			<h2>Quick Lunch</h2>
-			<p>580 cal | 26g protein</p>
-			<p>View Meal --></p>
-		</div>
-		
-		<div class="container">
-			<h2>Recent Meals</h2>
-			<h2>Veggie Plate</h2>
-			<p>Dining Hall B</p>
-			<br>
-			<h2>Chicken Bowl</h2>
-			<p>Dining Hall A</p>
-			<p>View Meal History --></p>
-		</div>
-		
-		<div class="container">
-			<h2>Today's Schedule</h2>
-			<p>11:00 AM Class - Main Campus</p>
-			<p>12:20 AM Lunch Break</p>
-			<p>02:10 PM Lab - West Campus</p>
-			<p>Edit Schedule --></p>
-		</div>
-		
-		<div class="container">
-			<h2>Today's Nutrition</h2>
-			<p>Calories 1,250 cal / 2,000 cal</p>
-			<p>Protein 65 g / 100 g</p>
-			<p>View Full Nutrition --></p>
-		</div>
-		
-		<div class="container">
-			<h2>Campus Events</h2>
-			<p> Oct 17</p>
-			<p>Game Day Dining</p>
-			<p>Special menu at dining hall</p>
-			<p>12:00 PM - 03:00 PM</p>
-			<p> Oct 21</p>
-			<p>Hot Dog Day</p>
-			<p>Special dining event</p>
-			<p>11:00 AM - 02:00 PM</p>
-			<p>View All Events --></p>
-		</div>
-	</body>
+    <link href="MUC.css" rel="stylesheet">
+    <link href="Menu.css" rel="stylesheet">
+    <link rel="icon" type="image/png" href="favicon.png">
+</head>
+
+<body>
+<div id="wrapper">
+Œ
+    <!-- Navigation -->
+    <header>
+        <img class="logo" src="MUC_Logo.svg" alt="Meals U Craft Logo">
+
+        <nav>
+            <ul class="nav__links">
+                <li><a class="active" href="index.html">Home</a></li>
+                <li><a href="Menu.html">Menu</a></li>
+                <li><a href="Explore.html">Explore</a></li>
+                <li><a href="DiningHalls.html">Dining Halls</a></li>
+                <li><a href="Profile.html">Profile</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="home-page">
+
+        <!-- Welcome Section -->
+        <section class="welcome-section">
+            <h1>What are you craving today?</h1>
+            <p>Discover dining options, build meals, and track your nutrition.</p>
+
+            <div class="search-row">
+                <form action="Menu.html" method="get" class="search-form">
+                    <input type="search" name="q"
+                        placeholder="Search dining halls, food, or meals..."
+                        aria-label="Search food and dining halls">
+                </form>
+
+                <a href="Menu.html" class="build-btn">Build a Meal</a>
+            </div>
+
+            <!-- Category Buttons -->
+            <div class="category-buttons">
+                <a href="Menu.html" class="category-btn">High Protein</a>
+                <a href="Menu.html" class="category-btn">Vegetarian</a>
+                <a href="Menu.html" class="category-btn">Quick Bites</a>
+                <a href="Menu.html" class="category-btn">AI Meal Ideas</a>
+            </div>
+        </section>
+
+        <!-- Dashboard Layout -->
+        <div class="home-grid">
+
+            <!-- LEFT SIDE -->
+            <div class="home-main-column">
+
+               
+                <!-- Recommended Meals -->
+<section class="recommended-section">
+    <h2>Recommended for You</h2>
+    <p class="section-description">Meals based on your preferences</p>
+
+    <div class="meal-cards">
+
+        <!-- Protein Bowl -->
+        <div class="meal-card">
+            <img src="images/proteinbowl.png" alt="Protein Bowl">
+
+            <div class="meal-details">
+                <h3>Protein Bowl</h3>
+                <p>650 cal | 45g protein</p>
+                <a href="Menu.html">View Meal &rarr;</a>
+            </div>
+        </div>
+
+        <!-- Veggie Plate -->
+        <div class="meal-card">
+            <img src="images/veggiebowl.png" alt="Veggie Plate">
+
+            <div class="meal-details">
+                <h3>Veggie Plate</h3>
+                <p>520 cal | 22g protein</p>
+                <a href="Menu.html">View Meal &rarr;</a>
+            </div>
+        </div>
+
+        <!-- Asian Food -->
+        <div class="meal-card">
+            <img src="images/asianfood.png" alt="Asian Food">
+
+            <div class="meal-details">
+                <h3>Asian Food</h3>
+                <p>580 cal | 26g protein</p>
+                <a href="Menu.html">View Meal &rarr;</a>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+
+                <!-- Bottom Cards -->
+                <div class="bottom-grid">
+
+                    <!-- Recent Meals -->
+                    <section class="home-card recent-meals">
+                        <h2>Recent Meals</h2>
+
+                        <div class="recent-meals-list">
+                            <div>
+                                <h3>Veggie Plate</h3>
+                                <p>Dining Hall B</p>
+                            </div>
+
+                            <div>
+                                <h3>Chicken Bowl</h3>
+                                <p>Dining Hall A</p>
+                            </div>
+                        </div>
+
+                        <a href="Profile.html" class="card-link">
+                            View Meal History &rarr;
+                        </a>
+                    </section>
+
+                    <!-- Today's Schedule -->
+                    <section class="home-card schedule-card">
+                        <h2>Today's Schedule</h2>
+
+                        <div class="schedule-item">
+                            <span>11:00</span>
+                            <p>Class - Main Campus</p>
+                        </div>
+
+                        <div class="schedule-item">
+                            <span>12:20</span>
+                            <p>Lunch Break</p>
+                        </div>
+
+                        <div class="schedule-item">
+                            <span>14:10</span>
+                            <p>Lab - West Campus</p>
+                        </div>
+
+                        <a href="Profile.html" class="card-link">
+                            Edit Schedule &rarr;
+                        </a>
+                    </section>
+
+                </div>
+            </div>
+
+            <!-- RIGHT SIDE -->
+            <aside class="home-sidebar">
+
+                <!-- Nutrition Card -->
+                <section class="home-card nutrition-card">
+                    <h2>Today's Nutrition</h2>
+
+                    <div class="nutrition-item">
+                        <div class="nutrition-label">
+                            <span>Calories</span>
+                            <span>1,250 / 2,000</span>
+                        </div>
+
+                        <div class="progress-bar">
+                            <div class="progress-fill calories"></div>
+                        </div>
+                    </div>
+
+                    <div class="nutrition-item">
+                        <div class="nutrition-label">
+                            <span>Protein</span>
+                            <span>65 / 100g</span>
+                        </div>
+
+                        <div class="progress-bar">
+                            <div class="progress-fill protein"></div>
+                        </div>
+                    </div>
+
+                    <a href="Profile.html" class="card-link">
+                        View Full Nutrition &rarr;
+                    </a>
+                </section>
+
+                <!-- Campus Events -->
+                <section class="home-card events-card">
+                    <h2>Campus Events</h2>
+
+                    <div class="event-item">
+                        <div class="event-date">
+                            <span>OCT</span>
+                            <strong>17</strong>
+                        </div>
+
+                        <div class="event-info">
+                            <h3>Game Day Dining</h3>
+                            <p>Special menu at dining hall</p>
+                            <p>12 PM - 3 PM</p>
+                        </div>
+                    </div>
+
+                    <div class="event-item">
+                        <div class="event-date">
+                            <span>OCT</span>
+                            <strong>21</strong>
+                        </div>
+
+                        <div class="event-info">
+                            <h3>Hot Dog Day</h3>
+                            <p>Special dining event</p>
+                            <p>11 AM - 2 PM</p>
+                        </div>
+                    </div>
+
+                    <a href="Explore.html" class="card-link">
+                        View All Events &rarr;
+                    </a>
+                </section>
+
+            </aside>
+        </div>
+
+    </main>
+</div>
+</body>
 </html>
