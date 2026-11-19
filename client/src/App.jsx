@@ -130,7 +130,7 @@ function App() {
   return (
     <main className="demo-page">
       <header className="page-header">
-        <h1>MealUCraft</h1>
+        <h1>MealsUCraft</h1>
       </header>
 
       {error && <p className="notice notice-error" role="alert">{error}</p>}
@@ -251,7 +251,7 @@ function App() {
             <section className="panel created-meals-panel" aria-labelledby="created-meals-heading">
               <div className="section-heading">
                 <div>
-                  <p className="eyebrow">Saved for the demo user</p>
+                  <p className="eyebrow">Meal history</p>
                   <h2 id="created-meals-heading">Created meals</h2>
                 </div>
                 <span className="item-count">{createdMeals.length} meals</span>
