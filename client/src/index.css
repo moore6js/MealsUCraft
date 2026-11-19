@@ -1,52 +1,61 @@
 :root {
-  font-family: Arial, sans-serif;
-  color: #222;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color: #20232a;
+  background: #f4f6f7;
+  font-synthesis: none;
 }
 
-body {
-  margin: 0;
-}
+* { box-sizing: border-box; }
 
-#root {
-  height: 100vh;
-}
+body { margin: 0; }
+
+button, input { font: inherit; }
+
+button { cursor: pointer; }
+
+#root { min-height: 100vh; }
 
 .demo-page {
   display: flex;
-  height: 100%;
-  max-width: 1400px;
+  min-height: 100vh;
+  max-width: 1180px;
   flex-direction: column;
   margin: 0 auto;
-  padding: 12px;
+  padding: 20px 24px 28px;
 }
 
 .page-header {
-  flex: 0 0 auto;
-  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 0 18px;
+  border-bottom: 1px solid #dfe3e5;
 }
 
 .page-header h1 {
   margin: 0;
-  font-size: 1.5rem;
+  color: #20232a;
+  font-size: 1.2rem;
+  letter-spacing: -0.04em;
 }
 
-.page-header p {
-  margin: 4px 0;
-}
+.page-header h1::first-letter { color: #ed3f50; }
 
 .demo-layout {
   display: grid;
   min-height: 0;
   flex: 1;
-  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
-  gap: 12px;
+  grid-template-columns: minmax(0, 1.18fr) minmax(350px, 0.82fr);
+  align-items: start;
+  gap: 16px;
+  padding-top: 22px;
 }
 
 .right-column {
   display: grid;
   min-height: 0;
-  grid-template-rows: minmax(0, 1fr) minmax(0, 1fr);
-  gap: 12px;
+  grid-template-rows: auto auto;
+  gap: 16px;
 }
 
 .panel {
@@ -54,128 +63,147 @@ body {
   min-height: 0;
   flex-direction: column;
   margin: 0;
-  padding: 10px;
+  padding: 18px;
   overflow: hidden;
-  border: 1px solid #ccc;
+  border: 1px solid #e1e5e7;
+  border-radius: 14px;
+  background: #fff;
+  box-shadow: 0 5px 16px rgb(34 42 48 / 5%);
 }
 
 .section-heading {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 12px;
   flex: 0 0 auto;
-  margin-bottom: 8px;
+  margin-bottom: 14px;
 }
 
 .section-heading h2,
 .food-card h3,
 .created-meal h3,
-.current-totals h3 {
-  margin: 0;
+.current-totals h3 { margin: 0; }
+
+.section-heading h2 { font-size: 1.05rem; letter-spacing: -0.025em; }
+
+.eyebrow {
+  margin: 0 0 4px;
+  color: #ed3f50;
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
 }
 
-.meal-name-field {
-  display: grid;
-  gap: 4px;
-  margin-bottom: 8px;
-}
+.item-count { color: #8a9297; font-size: 0.72rem; }
+
+.meal-name-field { display: grid; gap: 6px; margin-bottom: 12px; }
+
+.meal-name-field label { color: #646d73; font-size: 0.74rem; font-weight: 700; }
 
 .meal-name-field input {
   width: 100%;
   min-width: 0;
+  padding: 9px 11px;
+  border: 1px solid #d6dcdf;
+  border-radius: 7px;
+  outline: 0;
 }
+
+.meal-name-field input:focus { border-color: #ed3f50; box-shadow: 0 0 0 3px rgb(237 63 80 / 12%); }
 
 .food-list,
 .created-meal-list {
   display: grid;
   min-height: 0;
   flex: 1;
-  gap: 6px;
+  gap: 8px;
   overflow-y: auto;
 }
 
-.food-list {
-  grid-template-rows: repeat(3, minmax(0, 1fr));
-}
+.food-list { grid-template-rows: none; }
 
 .food-card,
 .created-meal {
   min-height: 0;
-  padding: 8px;
+  padding: 13px;
   overflow: auto;
-  border: 1px solid #ccc;
+  border: 1px solid #e3e7e8;
+  border-radius: 9px;
+  background: #fff;
 }
 
-.food-card-heading {
-  align-items: center;
-}
+.food-card:hover { border-color: #f09aa4; box-shadow: 0 3px 12px rgb(237 63 80 / 8%); }
+
+.food-card-heading { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
 
 .food-card h3,
-.created-meal h3 {
-  font-size: 1rem;
-}
+.created-meal h3 { font-size: 0.88rem; }
 
 .food-card p,
-.created-meal p {
-  margin: 4px 0;
-}
+.created-meal p { margin: 4px 0; }
 
 .serving-size,
-.selected-calories {
-  display: block;
-}
+.selected-calories { display: block; color: #8a9297; font-size: 0.7rem; }
 
 .nutrition-summary {
+  display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 4px;
-  margin: 6px 0;
+  gap: 8px;
+  margin: 10px 0;
 }
 
-.nutrition-summary dt {
-  font-size: 0.8rem;
-}
+.nutrition-summary div { min-width: 0; }
 
-.nutrition-summary dd {
-  overflow-wrap: anywhere;
-  font-size: 0.85rem;
-}
+.nutrition-summary dt { color: #899196; font-size: 0.68rem; }
 
-.food-details {
-  font-size: 0.85rem;
-}
+.nutrition-summary dd { margin: 2px 0 0; overflow-wrap: anywhere; font-size: 0.76rem; font-weight: 750; }
 
-.section-heading,
-.food-card-heading,
-.selected-list li {
-  display: flex;
-  justify-content: space-between;
-  gap: 12px;
-}
+.food-details { color: #697277; font-size: 0.72rem; }
 
 .selected-list {
   min-height: 0;
   flex: 1;
   margin: 0;
-  padding-left: 20px;
+  padding: 0;
   overflow-y: auto;
+  list-style: none;
 }
 
-.quantity-control {
-  display: flex;
-  gap: 8px;
+.selected-list li { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 11px 0; border-bottom: 1px solid #edf0f1; }
+
+.quantity-control { display: flex; align-items: center; gap: 8px; color: #343a40; font-size: 0.78rem; }
+
+.quantity-control button,
+.button {
+  border: 0;
+  border-radius: 7px;
+  font-size: 0.75rem;
+  font-weight: 750;
 }
+
+.quantity-control button { width: 24px; height: 24px; padding: 0; color: #50585d; background: #f0f2f3; }
+.quantity-control button:hover { color: #ed3f50; background: #feecef; }
+
+.button { padding: 9px 13px; }
+.button-secondary { color: #ed3f50; background: #fff1f3; }
+.button-secondary:hover { background: #ffe2e6; }
+.button-primary { width: 100%; color: #fff; background: #ed3f50; }
+.button-primary:hover:not(:disabled) { background: #d93042; }
+.button:disabled { cursor: not-allowed; opacity: 0.45; }
 
 .notice,
 .empty-message,
-.loading-message {
-  margin: 12px 0;
-}
+.loading-message { margin: 14px 0 0; padding: 11px 13px; border-radius: 8px; font-size: 0.82rem; }
+.notice-error { color: #a92c3c; background: #fff0f2; }
+.notice-success { color: #267744; background: #edf9f0; }
+.empty-message,
+.loading-message { color: #7a8388; background: #f7f8f8; }
 
-.current-totals {
-  flex: 0 0 auto;
-  margin-top: auto;
-}
-
-.create-button {
-  flex: 0 0 auto;
-}
+.current-totals { flex: 0 0 auto; margin-top: 16px; padding-top: 14px; border-top: 1px solid #edf0f1; }
+.current-totals h3 { color: #5d666b; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.06em; }
+.create-button { flex: 0 0 auto; margin-top: 8px; }
 
 @media (max-width: 760px) {
   #root {
