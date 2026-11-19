@@ -61,3 +61,136 @@ button:hover {background-color: rgba(167, 165, 170, 0.8);}
   box-shadow: 3px 3px 3px #a7a5aa;
   border: 1px solid #e0dfe3}
 
+
+/*
+   DINING HALLS PAGE
+ */
+
+.dining-page {
+    width: calc(100% - 24px);
+    margin: 12px auto;
+    padding: 35px 45px 60px;
+    background-color: #F7F8FA;
+}
+
+.dining-section {
+    margin-bottom: 45px;
+}
+
+.dining-section h1 {
+    margin: 0 0 25px;
+    font-family: "Open Sans", sans-serif;
+    font-size: 28px;
+    color: #1D1D1D;
+}
+
+/* Three-column layout */
+.dining-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+}
+
+/* Individual dining hall cards */
+.dining-card {
+    display: flex;
+    flex-direction: column;
+    padding: 16px;
+    background-color: #FFFFFF;
+    border: 1px solid #E5E7EB;
+    border-radius: 10px;
+}
+
+/* Dining hall images */
+.dining-card img {
+    display: block;
+    width: 100%;
+    height: 190px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+/* Dining hall name */
+.dining-card h2 {
+    font-family: "Open Sans", sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: #1D1D1D;
+    margin-bottom: 5px;
+}
+
+/* Location text */
+.dining-location {
+    font-size: 13px;
+    color: #6B7280;
+    margin-bottom: 15px;
+}
+
+/* Hours information */
+.dining-hours {
+    margin-bottom: 20px;
+}
+
+.dining-hours h3 {
+    font-size: 14px;
+    font-weight: 600;
+    color: #1D1D1D;
+    margin-bottom: 6px;
+}
+
+.dining-hours p {
+    font-size: 13px;
+    line-height: 1.6;
+    color: #1D1D1D;
+}
+
+/* Red day labels */
+.dining-hours .dining-day {
+    color: #E00122;
+    font-weight: 600;
+    margin-top: 10px;
+}
+
+/* View Menu button */
+.dining-button {
+    display: inline-block;
+    align-self: flex-start;
+    margin-top: auto;
+    padding: 10px 18px;
+    border: 1px solid #E5E7EB;
+    border-radius: 6px;
+    background-color: #FFFFFF;
+    color: #1D1D1D;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.dining-button:hover {
+    color: #FFFFFF;
+    background-color: #E00122;
+    border-color: #E00122;
+}
+
+/* Tablet layout */
+@media (max-width: 900px) {
+    .dining-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .dining-page {
+        padding: 25px;
+    }
+}
+
+/* Mobile layout */
+@media (max-width: 600px) {
+    .dining-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .dining-page {
+        padding: 20px 15px;
+    }
+}
