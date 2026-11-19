@@ -16,7 +16,6 @@
     background-color: #ffffff;
     border-bottom: 1px solid #ecefeb;
 }
-
 .analytics-header > a {
     display: inline-flex;
     align-items: center;
@@ -24,11 +23,9 @@
 .analytics-page .nav__links {
     gap: 30px;
 }
-
 .analytics-page .nav__links li {
     padding: 0;
 }
-
 .analytics-page .nav__links a {
     color: #202620;
     font-size: 13px;
