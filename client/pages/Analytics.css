@@ -1,49 +1,42 @@
-.analytics-page {
-    background-color: #f6f7f9;
-    color: #222222;
-}
-
 .analytics-page * {
     background-color: transparent;
+    font-family: "Times New Roman", Times, serif;
 }
 
-.analytics-layout {
+.analytics-main {
     width: 95%;
     max-width: 1200px;
     margin: 30px auto;
+    padding: 34px 25px 40px;
 }
 
 .analytics-header {
-    justify-content: space-between;
-    padding: 18px 30px;
+    min-height: 64px;
+    padding: 12px clamp(20px, 3.2vw, 44px);
     background-color: #ffffff;
+    border-bottom: 1px solid #ecefeb;
 }
 
 .analytics-header > a {
     display: inline-flex;
     align-items: center;
 }
-
-.analytics-header .logo {
-    width: 140px;
-    max-height: 45px;
+.analytics-page .nav__links {
+    gap: 30px;
 }
 
 .analytics-page .nav__links li {
     padding: 0;
 }
 
-.analytics-page .nav__links li a {
-    font-size: 14px;
-}
-
-.analytics-main {
-    padding: 34px 25px 40px;
+.analytics-page .nav__links a {
+    color: #202620;
+    font-size: 13px;
+    font-weight: 600;
 }
 
 .analytics-main > h1 {
     margin: 0;
-    font-size: 26px;
 }
 
 .analytics-metrics {
@@ -57,7 +50,6 @@
     min-width: 0;
     min-height: 118px;
     padding: 16px;
-    border: 0;
     border-radius: 10px;
     background-color: #dedede;
 }
@@ -101,8 +93,7 @@
 }
 
 .analytics-chart-heading h2 {
-    margin: 0;
-    font-size: 17px;
+    margin-bottom: 0;
 }
 
 .analytics-chart-legend {
@@ -133,10 +124,6 @@
     background-color: #191919;
 }
 
-.analytics-chart-scroll {
-    overflow-x: auto;
-}
-
 .analytics-chart {
     display: block;
     width: 100%;
@@ -151,7 +138,6 @@
 .analytics-chart-axis text,
 .analytics-chart-labels text {
     fill: #555555;
-    font-family: Arial, sans-serif;
     font-size: 12px;
 }
 
@@ -171,43 +157,107 @@
     fill: #191919;
 }
 
-@media (max-width: 768px) {
-    .analytics-header {
-        flex-direction: column;
-        gap: 18px;
-    }
-
-    .analytics-main {
-        padding: 28px 20px;
-    }
-
-    .analytics-metrics {
-        gap: 16px;
-    }
+.analytics-donut-section {
+    margin-top: 42px;
 }
 
-@media (max-width: 600px) {
-    .analytics-layout {
-        width: 100%;
-        margin: 0;
-    }
+.analytics-donut-section > h2 {
+    margin-bottom: 16px;
+    font-size: 17px;
+}
 
-    .analytics-metrics {
-        grid-template-columns: 1fr;
-        margin-top: 32px;
-    }
+.analytics-donut-card {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+    width: min(100%, 520px);
+    padding: 18px 22px;
+    border: 1px solid #e8ebe8;
+    border-radius: 12px;
+    background-color: #ffffff;
+}
 
-    .analytics-metric-card {
-        min-height: 0;
-    }
+.analytics-donut {
+    display: block;
+    flex: 0 0 180px;
+    width: 180px;
+    height: 180px;
+}
 
-    .analytics-chart-heading {
-        align-items: flex-start;
-        flex-direction: column;
-        gap: 12px;
-    }
+.analytics-donut-track,
+.analytics-donut-segment {
+    fill: none;
+    stroke-width: 18;
+}
 
-    .analytics-chart {
-        min-width: 680px;
-    }
+.analytics-donut-track {
+    stroke: #e9ece9;
+}
+
+.analytics-donut-dine-in {
+    stroke: #e00122;
+}
+
+.analytics-donut-take-out {
+    stroke: #293d32;
+}
+
+.analytics-donut-other {
+    stroke: #aeb8b0;
+}
+
+.analytics-donut-total,
+.analytics-donut-caption {
+    text-anchor: middle;
+}
+
+.analytics-donut-total {
+    fill: #293d32;
+    font-size: 22px;
+    font-weight: 700;
+}
+
+.analytics-donut-caption {
+    fill: #777777;
+    font-size: 10px;
+}
+
+.analytics-donut-legend {
+    display: grid;
+    flex: 1;
+    gap: 16px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.analytics-donut-legend li {
+    display: grid;
+    grid-template-columns: 12px 1fr auto;
+    align-items: center;
+    gap: 9px;
+    color: #555555;
+    font-size: 13px;
+}
+
+.analytics-donut-legend strong {
+    color: #293d32;
+}
+
+.analytics-donut-swatch {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+}
+
+.analytics-donut-swatch-dine-in {
+    background-color: #e00122;
+}
+
+.analytics-donut-swatch-take-out {
+    background-color: #293d32;
+}
+
+.analytics-donut-swatch-other {
+    background-color: #aeb8b0;
 }

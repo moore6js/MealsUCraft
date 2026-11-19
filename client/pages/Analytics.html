@@ -1,10 +1,8 @@
 <!DOCTYPE html>
-
 <html lang="en">
 	<head>
 		<meta charset="utf-8">
 		<title>MealsUCraft - Analytics</title>
-		<meta name="description" content="">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link href="MUC.css" rel="stylesheet">
 		<link href="Analytics.css" rel="stylesheet">
@@ -12,93 +10,116 @@
 	</head>
 
 	<body class="analytics-page">
-		<div class="analytics-layout">
-			<header class="analytics-header">
-				<a href="index.html" aria-label="MealsUCraft home">
-					<img class="logo" src="MUC_Logo.svg" alt="MealsUCraft">
-				</a>
-				<nav aria-label="Main navigation">
-					<ul class="nav__links analytics-nav__links">
-						<li><a href="index.html">Home</a></li>
-						<li><a href="Menu.html">Menu</a></li>
-						<li><a href="Explore.html">Explore</a></li>
-						<li><a href="DiningHalls.html">Dining Halls</a></li>
-						<li><a href="Profile.html">Profile</a></li>
-						<li><a href="AI.html">Meal Assistant</a></li>
-					</ul>
-				</nav>
-			</header>
+		<header class="analytics-header">
+			<a href="index.html" aria-label="MealsUCraft home">
+				<img class="logo" src="MUC_Logo.svg" alt="">
+			</a>
+			<nav aria-label="Main navigation">
+				<ul class="nav__links">
+					<li><a href="index.html">Home</a></li>
+					<li><a href="Menu.html">Menu</a></li>
+					<li><a href="Explore.html">Explore</a></li>
+					<li><a href="DiningHalls.html">Dining Halls</a></li>
+					<li><a href="Profile.html">Profile</a></li>
+					<li><a href="AI.html">Meal Assistant</a></li>
+				</ul>
+			</nav>
+		</header>
 
-			<main class="analytics-main">
-				<h1>Dining Service Analytics</h1>
+		<main class="analytics-main">
+			<h1>Dining Service Analytics</h1>
 
-				<section class="analytics-metrics" aria-label="Dining service summary">
-					<article class="analytics-metric-card">
-						<h2>Meals Built</h2>
-						<p class="analytics-metric-value">12,456</p>
-						<p class="analytics-metric-change">+15% from last month</p>
-					</article>
-					<article class="analytics-metric-card">
-						<h2>Active Users</h2>
-						<p class="analytics-metric-value">3,488</p>
-						<p class="analytics-metric-change">+10% from last month</p>
-					</article>
-					<article class="analytics-metric-card">
-						<h2>Most Popular Item</h2>
-						<p class="analytics-metric-value analytics-metric-value--item">Grilled Chicken</p>
-						<p class="analytics-metric-change">+20% demand</p>
-					</article>
-				</section>
+			<section class="analytics-metrics" aria-label="Dining service summary">
+				<article class="analytics-metric-card">
+					<h2>Meals Built</h2>
+					<p class="analytics-metric-value">12,456</p>
+					<p class="analytics-metric-change">+15% from last month</p>
+				</article>
+				<article class="analytics-metric-card">
+					<h2>Active Users</h2>
+					<p class="analytics-metric-value">3,488</p>
+					<p class="analytics-metric-change">+10% from last month</p>
+				</article>
+				<article class="analytics-metric-card">
+					<h2>Most Popular Item</h2>
+					<p class="analytics-metric-value analytics-metric-value--item">Grilled Chicken</p>
+					<p class="analytics-metric-change">+20% demand</p>
+				</article>
+			</section>
 
-				<section class="analytics-chart-section" aria-labelledby="usage-heading">
-					<div class="analytics-chart-heading">
-						<h2 id="usage-heading">Dining Hall Usage</h2>
-						<div class="analytics-chart-legend" aria-label="Chart legend">
-							<span><i class="analytics-legend-current"></i>This Month</span>
-							<span><i class="analytics-legend-previous"></i>Last Month</span>
-						</div>
+			<section class="analytics-chart-section" aria-labelledby="usage-heading">
+				<div class="analytics-chart-heading">
+					<h2 id="usage-heading">Dining Hall Usage</h2>
+					<div class="analytics-chart-legend" aria-label="Chart legend">
+						<span><i class="analytics-legend-current"></i>This Month</span>
+						<span><i class="analytics-legend-previous"></i>Last Month</span>
 					</div>
+				</div>
 
-					<svg class="analytics-chart" viewBox="0 0 760 330" role="img" aria-labelledby="chart-title chart-description">
-						<title id="chart-title">Dining hall usage this month and last month</title>
-						<desc id="chart-description">A bar chart comparing usage at On the Green, Center Court, MarketPointe, TUC, Hoff Dining Hall, and Bearcats Cafe. This month is shown in red and last month in black.</desc>
-						<g class="analytics-chart-grid">
-							<line x1="78" y1="260" x2="738" y2="260"></line>
-							<line x1="78" y1="188" x2="738" y2="188"></line>
-							<line x1="78" y1="116" x2="738" y2="116"></line>
-							<line x1="78" y1="44" x2="738" y2="44"></line>
+				<svg class="analytics-chart" viewBox="0 0 760 330" role="img" aria-labelledby="chart-title chart-description">
+					<title id="chart-title">Dining hall usage this month and last month</title>
+					<desc id="chart-description">A bar chart comparing usage at On the Green, Center Court, MarketPointe, TUC, Hoff Dining Hall, and Bearcats Cafe. This month is shown in red and last month in black.</desc>
+					<g class="analytics-chart-grid">
+						<line x1="78" y1="260" x2="738" y2="260"></line>
+						<line x1="78" y1="188" x2="738" y2="188"></line>
+						<line x1="78" y1="116" x2="738" y2="116"></line>
+						<line x1="78" y1="44" x2="738" y2="44"></line>
+					</g>
+					<g class="analytics-chart-axis">
+						<text x="68" y="265">0</text>
+						<text x="68" y="193">100</text>
+						<text x="68" y="121">200</text>
+						<text x="68" y="49">300</text>
+					</g>
+					<g class="analytics-bar-current">
+						<rect x="103" y="108.8" width="18" height="151.2"></rect>
+						<rect x="213" y="44" width="18" height="216"></rect>
+						<rect x="323" y="116" width="18" height="144"></rect>
+						<rect x="433" y="62" width="18" height="198"></rect>
+						<rect x="543" y="108.8" width="18" height="151.2"></rect>
+						<rect x="653" y="173.6" width="18" height="86.4"></rect>
+					</g>
+					<g class="analytics-bar-previous">
+						<rect x="125" y="148.4" width="18" height="111.6"></rect>
+						<rect x="235" y="90.8" width="18" height="169.2"></rect>
+						<rect x="345" y="209.6" width="18" height="50.4"></rect>
+						<rect x="455" y="90.8" width="18" height="169.2"></rect>
+						<rect x="565" y="148.4" width="18" height="111.6"></rect>
+						<rect x="675" y="242" width="18" height="18"></rect>
+					</g>
+					<g class="analytics-chart-labels">
+						<text x="123" y="284">On the Green</text>
+						<text x="233" y="284">Center Court</text>
+						<text x="343" y="284">MarketPointe</text>
+						<text x="453" y="284">TUC</text>
+						<text x="563" y="284">Hoff Dining Hall</text>
+						<text x="673" y="284">Bearcats Cafe</text>
+					</g>
+				</svg>
+			</section>
+
+			<section class="analytics-donut-section" aria-labelledby="order-type-heading">
+				<h2 id="order-type-heading">Ordering Type</h2>
+				<div class="analytics-donut-card">
+					<svg class="analytics-donut" viewBox="0 0 180 180" role="img" aria-labelledby="order-type-title order-type-description">
+						<title id="order-type-title">Ordering Type</title>
+						<desc id="order-type-description">54 percent Dine-In, 42 percent Take-Out, and 4 percent Other.</desc>
+						<circle class="analytics-donut-track" cx="90" cy="90" r="58"></circle>
+						<g transform="rotate(-90 90 90)">
+							<circle class="analytics-donut-segment analytics-donut-dine-in" cx="90" cy="90" r="58" stroke-dasharray="196.789 167.636"></circle>
+							<circle class="analytics-donut-segment analytics-donut-take-out" cx="90" cy="90" r="58" stroke-dasharray="153.058 211.366" stroke-dashoffset="-196.789"></circle>
+							<circle class="analytics-donut-segment analytics-donut-other" cx="90" cy="90" r="58" stroke-dasharray="14.577 349.848" stroke-dashoffset="-349.847"></circle>
 						</g>
-						<g class="analytics-chart-axis">
-							<text x="68" y="265">0</text>
-							<text x="68" y="193">100</text>
-							<text x="68" y="121">200</text>
-							<text x="68" y="49">300</text>
-						</g>
-						<g class="analytics-chart-bars">
-							<rect class="analytics-bar-current" x="103" y="108.8" width="18" height="151.2"></rect>
-							<rect class="analytics-bar-previous" x="125" y="148.4" width="18" height="111.6"></rect>
-							<rect class="analytics-bar-current" x="213" y="44" width="18" height="216"></rect>
-							<rect class="analytics-bar-previous" x="235" y="90.8" width="18" height="169.2"></rect>
-							<rect class="analytics-bar-current" x="323" y="116" width="18" height="144"></rect>
-							<rect class="analytics-bar-previous" x="345" y="209.6" width="18" height="50.4"></rect>
-							<rect class="analytics-bar-current" x="433" y="62" width="18" height="198"></rect>
-							<rect class="analytics-bar-previous" x="455" y="90.8" width="18" height="169.2"></rect>
-							<rect class="analytics-bar-current" x="543" y="108.8" width="18" height="151.2"></rect>
-							<rect class="analytics-bar-previous" x="565" y="148.4" width="18" height="111.6"></rect>
-							<rect class="analytics-bar-current" x="653" y="173.6" width="18" height="86.4"></rect>
-							<rect class="analytics-bar-previous" x="675" y="242" width="18" height="18"></rect>
-						</g>
-						<g class="analytics-chart-labels">
-							<text x="123" y="284">On the Green</text>
-							<text x="233" y="284">Center Court</text>
-							<text x="343" y="284">MarketPointe</text>
-							<text x="453" y="284">TUC</text>
-							<text x="563" y="284">Hoff Dining Hall</text>
-							<text x="673" y="284">Bearcats Cafe</text>
-						</g>
+						<text class="analytics-donut-total" x="90" y="88">100%</text>
+						<text class="analytics-donut-caption" x="90" y="106">of orders</text>
 					</svg>
-				</section>
-			</main>
-		</div>
+					<ul class="analytics-donut-legend" aria-label="Order types">
+						<li><span class="analytics-donut-swatch analytics-donut-swatch-dine-in"></span><span>Dine-In</span><strong>54%</strong></li>
+						<li><span class="analytics-donut-swatch analytics-donut-swatch-take-out"></span><span>Take-Out</span><strong>42%</strong></li>
+						<li><span class="analytics-donut-swatch analytics-donut-swatch-other"></span><span>Other</span><strong>4%</strong></li>
+					</ul>
+				</div>
+			</section>
+		</main>
 	</body>
 </html>
