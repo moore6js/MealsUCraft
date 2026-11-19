@@ -10,10 +10,11 @@
 		<link rel="icon" type="image/png" href="favicon.png">
 	</head>
 
-	<body>
+<body>
+	<main>
 		<div id="wrapper">
 		<header>
-			<img class="logo" src="MUC_Logo.svg" alt="Meals U Craft Logo"
+			<img class="logo" src="MUC_Logo.svg" alt="Meals U Craft Logo">
 			<nav>
 				<ul class="nav__links">
 					<li><a href="index.html">Home</a></li>
@@ -21,124 +22,326 @@
 					<li><a href="Explore.html">Explore</a></li>
 					<li><a href="DiningHalls.html">Dining Halls</a></li>
 					<li><a href="Profile.html">Profile</a></li>
+					<li><a href="AI.html">Meal Assistant</a></li>
 				</ul>
 			</nav>
 		</header>
 		</div>
-		
+
 		<div class="container">
 			<h1>Build Your Perfect Meal</h1>
 			<p>Search menu items, customize your meal, and see real-time nutrition information.</p>
-			<h1>Menu Items</h1>
-			<p>Search for menu items...</p>
-			<h2>All</h2>
-			<h2>Proteins</h2>
-			<h2>Grains</h2>
-			<h2>Vegetables</h2>
-			<h2>More...</h2>
 		</div>
-		
+
 		<div class="container">
-			<h2>Grilled Chicken Breast</h2>
-			<p>250 cal | 45g protein</p>
-			<p>+</p>
-		</div>
-		
-		<div class="container">
-			<h2>Brown Rice</h2>
-			<p>210 cal | 5g protein</p>
-			<p>+</p>
-		</div>
-		
-		<div class="container">
-			<h2>Roasted Vegetables</h2>
-			<p>120 cal | 3g protein</p>
-			<p>+</p>
-		</div>
-		
-		<div class="container">
-			<h2>Caesar Salad</h2>
-			<p>180 cal | 6g protein</p>
-			<p>+</p>
-		</div>
-		
-		<div class="container">
-			<h2>Marinara Pizza</h2>
-			<p>320 cal | 12g protein</p>
-			<p>+</p>
-		</div>
-		
-		<div class="container">
-			<h2>BBQ Chicken Pizza</h2>
-			<p>320 cal | 8g protein</p>
-			<p>+</p>
-		</div>
-		
-		<div class="container">
-			<h2>Hummus and Pita Chips</h2>
-			<p>150 cal | 10g protein</p>
-			<p>+</p>
-		</div>
-		
-		<div class="container">
-			<h2>Apple</h2>
-			<p>95 cal | 0g protein</p>
-			<p>+</p>
-		</div>
-		
-		<div class="container">
-		<h1>My Meal</h1>
-			<div class="container">
-				<h2>Grilled Chicken Breast</h2>
-				<p>250 cal</p>
-				<p>- 1 +</p>
-				<p>X</p>
+			<div id="columns">
+				<div class="column">
+					<h1>Menu Items</h1>
+					
+					<div class="search-container">
+						<form class="search-form">
+							<input
+								type="search"
+								class="search-box"
+								placeholder="Search for menu items..."
+							>
+							<button type="submit" class="search-button">
+								Search
+							</button>
+						</form>
+					</div>
+					
+					<div class="category-buttons">
+						<button class="filter-button active">All</button>
+						<button class="filter-button">Proteins</button>
+						<button class="filter-button">Grains</button>
+						<button class="filter-button">Vegetables</button>
+						<button class="filter-button">More...</button>
+					</div>
+					
+					<div id="menu-items"></div>
+				</div>
+
+			<div class="column">
+				<div class="container">
+					<h1>My Meal</h1>
+
+					<div id="meal-list"></div>
+
+						<button>Save Meal</button>
+						<button>Add to Favorites</button>
+						<button>Add Custom Item</button>
+				</div>
 			</div>
-			
-			<div class="container">
-				<h2>Brown Rice</h2>
-				<p>210 cal</p>
-				<p>- 1 +</p>
-				<p>X</p>			<p>+</p>
-			</div>
-			
-			<div class="container">
-				<h2>Roasted Vegetables</h2>
-				<p>120 cal</p>
-				<p>- 1 +</p>
-				<p>X</p>			<p>+</p>
-			</div>
-			
-			<div class="container">
-				<h2>Apple</h2>
-				<p>95 cal</p>
-				<p>- 1 +</p>
-				<p>X</p>
-			</div>
-			
-			<div class="container">
-				<p>+ Add Custom Item</p>
-			</div>
-			<button>Save Meal</button>
-			<button>Add to Favorites</button>
+
+				<div class="column">
+					<div class="container">
+						<h1>Nutrition Facts</h1>
+					</div>				
+						<div class="nutrition-container">
+						<!-- Outer Ring - Carbs -->
+						<div class="ring carbs">
+							<!-- Protein Ring -->
+							<div class="ring protein">
+								<!-- Fat Ring -->
+								<div class="ring fat">
+									<!-- Center -->
+									<div class="center-circle">
+										<div class="flame">🔥</div>
+										<h1>1,850</h1>
+										<h2>Calories</h2>
+										<p>of 2,200</p>
+										<span class="cal-percent">84%</span>
+									</div>
+
+								</div>
+							</div>
+						</div>
+
+					</div>
+			<div class="nutrition-column">
+				<div class="nutrition-widget">
+							<div class="nutrition-summary">
+								<div class="stat">
+									<h3 class="fat-color">Fat</h3>
+									<p>65g / 80g</p>
+									<span class="fat-color">81%</span>
+								</div>
+
+								<div class="stat">
+									<h3 class="protein-color">Protein</h3>
+									<p>120g / 160g</p>
+									<span class="protein-color">75%</span>
+								</div>
+
+								<div class="stat">
+									<h3 class="carb-color">Carbs</h3>
+									<p>180g / 250g</p>
+									<span class="carb-color">72%</span>
+								</div>
+
+								<div class="stat">
+									<h3> Calories</h3>
+									<p>1,850 / 2,200</p>
+									<span>84%</span>
+								</div>
+
+							</div>
+				
+				</div>	
+
+					<div class="nutrition-totals">
+						<p id="total-calories">0 cal</p>
+						<p id="total-protein">Protein: 0g</p>
+						<p id="total-carbs">Carbs: 0g</p>
+						<p id="total-fat">Fat: 0g</p>
+						<p id="total-fiber">Fiber: 0g</p>
+						<p id="total-sodium">Sodium: 0mg</p>
+					</div>
+					
+					<div class="meal-location">
+   						 <p><strong>This meal is available at:</strong></p>
+    					<h2>On The Green</h2>
+    					<p>Open Now</p>
+					</div>
+				</div>
+					
+					<button>Find Other Locations</button>
+			</div>				
 		</div>
-		
-		<div class="container">
-			<h1>Nutrition Facts</h1>
-			<p>1,245 cal</p>
-			<p>Protein 54g 32%</p>
-			<p>Carbs 61g 36%</p>
-			<p>Fat 9g 12%</p>
-			<p>Fiber 8g</p>
-			<p>Sodium 420mg</p>
-		
-		<div class="container">
-			<p>This meal is available at:</p>
-			<p>On The Green</p>
-			<p>Open Now</p>
-		</div>
-		
-		<button>Find Other Locations</button>
-		</div>
-	</body>
+	</div>
+</main>
+
+<script>
+const buttons = document.querySelectorAll('.filter-button');
+
+buttons.forEach(button => {
+    button.addEventListener('click', function() {
+
+        buttons.forEach(button => {
+            button.classList.remove('active');
+        });
+
+        this.classList.add('active');
+    });
+});
+
+const menuContainer =
+    document.getElementById("menu-items");
+
+fetch("foods.json")
+    .then(response => response.json())
+    .then(data => {
+
+        data.forEach(food => {
+
+            const foodCard =
+                document.createElement("div");
+
+            foodCard.classList.add("container", "food-card");
+
+            foodCard.innerHTML = `
+				<div class="food-item">
+					<div class="food-info">
+						<h2>${food.name}</h2>
+						<p>
+							${food.calories} cal |
+    						${food.protein}g protein
+						</p>
+					</div>
+
+					<button
+						class="add-item"
+						data-name="${food.name}"
+						data-calories="${food.calories}">
+						+
+					</button>
+				</div>
+			`;
+
+            menuContainer.appendChild(foodCard);
+				
+			foodCard
+				.querySelector(".add-item")
+				.addEventListener("click", function() {
+
+					if (meal[food.name]) {
+
+						meal[food.name].quantity++;
+
+					} else {
+
+						meal[food.name] = {
+
+							name: food.name,
+							calories: food.calories,
+							protein: food.protein,
+							carbs: food.carbs,
+							fat: food.fat,
+							fiber: food.fiber,
+							sodium: food.sodium,
+							quantity: 1
+
+						};
+
+					}
+
+					renderMeal();
+
+				});
+
+        });
+
+    });
+
+const meal = {};
+
+const mealList = document.getElementById("meal-list");
+/*const totalCaloriesDisplay =
+    document.getElementById("total-calories");*/
+
+function renderMeal() {
+
+    const mealList =
+        document.getElementById("meal-list");
+
+    mealList.innerHTML = "";
+
+	let totalCalories = 0;
+	let totalProtein = 0;
+	let totalCarbs = 0;
+	let totalFat = 0;
+	let totalFiber = 0;
+	let totalSodium = 0;
+
+    for (const foodName in meal) {
+
+        const food = meal[foodName];
+		console.log(food);
+		totalCalories += food.calories * food.quantity;
+		totalProtein += food.protein * food.quantity;
+		totalCarbs += food.carbs * food.quantity;
+		totalFat += food.fat * food.quantity;
+		totalFiber += food.fiber * food.quantity;
+		totalSodium += food.sodium * food.quantity;
+
+        const item =
+            document.createElement("div");
+
+       item.classList.add("container", "food-card");
+
+        item.innerHTML = `
+			<div class="food-item">
+
+				<div class="food-info">
+					<h2>${food.name}</h2>
+
+					<p>
+						${food.calories * food.quantity} cal |
+						${food.protein * food.quantity}g protein |
+						${food.carbs * food.quantity}g carbs |
+						${food.fat * food.quantity}g fat
+					</p>
+				</div>
+
+				<div class="meal-controls">
+					<button class="minus">−</button>
+					<span>${food.quantity}</span>
+					<button class="plus">+</button>
+				</div>
+
+			</div>
+		`;
+
+        item.querySelector(".plus")
+            .addEventListener("click", () => {
+
+                meal[foodName].quantity++;
+                renderMeal();
+
+            });
+
+        item.querySelector(".minus")
+            .addEventListener("click", () => {
+
+                meal[foodName].quantity--;
+
+                if (meal[foodName].quantity <= 0) {
+
+                    delete meal[foodName];
+
+                }
+
+                renderMeal();
+
+            });
+
+        mealList.appendChild(item);
+			}
+
+			document.getElementById("total-calories").textContent =
+				`${totalCalories} cal`;
+
+			document.getElementById("total-protein").textContent =
+				`Protein: ${totalProtein}g`;
+
+			document.getElementById("total-carbs").textContent =
+				`Carbs: ${totalCarbs}g`;
+
+			document.getElementById("total-fat").textContent =
+				`Fat: ${totalFat}g`;
+
+			document.getElementById("total-fiber").textContent =
+				`Fiber: ${totalFiber}g`;
+
+			document.getElementById("total-sodium").textContent =
+				`Sodium: ${totalSodium}mg`;
+		}
+
+const carbsPercent = (carbsConsumed / carbsGoal) * 100;
+const proteinPercent = (proteinConsumed / proteinGoal) * 100;
+const fatPercent = (fatConsumed / fatGoal) * 100;
+</script>
+
+</body>
 </html>

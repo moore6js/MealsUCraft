@@ -1,0 +1,90 @@
+[
+  {
+    "id": 1,
+    "name": "Grilled Chicken Breast",
+    "category": "Protein",
+    "calories": 250,
+    "protein": 45,
+    "carbs": 0,
+    "fat": 6,
+    "fiber": 0,
+    "sodium": 120
+  },
+  {
+    "id": 2,
+    "name": "Brown Rice",
+    "category": "Grain",
+    "calories": 210,
+    "protein": 5,
+    "carbs": 45,
+    "fat": 2,
+    "fiber": 4,
+    "sodium": 10
+  },
+  {
+    "id": 3,
+    "name": "Roasted Vegetables",
+    "category": "Vegetable",
+    "calories": 120,
+    "protein": 3,
+    "carbs": 18,
+    "fat": 5,
+    "fiber": 5,
+    "sodium": 180
+  },
+  {
+    "id": 4,
+    "name": "Apple",
+    "category": "Fruit",
+    "calories": 95,
+    "protein": 0,
+    "carbs": 25,
+    "fat": 0,
+    "fiber": 4,
+    "sodium": 2
+  },
+  {
+    "id": 5,
+    "name": "Chicken Caesar Salad",
+    "category": "Vegetable",
+    "calories": 380,
+    "protein": 30,
+    "carbs": 12,
+    "fat": 24,
+    "fiber": 3,
+    "sodium": 780
+  },
+  {
+    "id": 6,
+    "name": "Marinara Pizza",
+    "category": "Entree",
+    "calories": 320,
+    "protein": 12,
+    "carbs": 38,
+    "fat": 13,
+    "fiber": 2,
+    "sodium": 650
+  },
+  {
+    "id": 7,
+    "name": "BBQ Chicken Pizza",
+    "category": "Entree",
+    "calories": 340,
+    "protein": 18,
+    "carbs": 36,
+    "fat": 14,
+    "fiber": 2,
+    "sodium": 720
+  },
+  {
+    "id": 8,
+    "name": "Hummus and Pita Chips",
+    "category": "Snack",
+    "calories": 150,
+    "protein": 5,
+    "carbs": 18,
+    "fat": 7,
+    "fiber": 3,
+    "sodium": 210
+  }
+]

@@ -1,15 +1,16 @@
 * { box-sizing: border-box; 
 	margin:0;
-	padding: 0;
-	background-color:#ffffff;}
+	padding: 0;}
+
+body { background-color:#ffffff;}
 
 	#wrapper { width: 95%;
-		margin: 10px 10px;
+		margin: 2px 10px;
 		background-color: #a7a5aa;
 		min-width: 98%;
 		max-width: 98%;
-		box-shadow: 3px 3px 3px #a7a5aa;
-		border: 1px solid #e0dfe3;}
+		/*box-shadow: 3px 3px 3px #a7a5aa;
+		border: 1px solid #e0dfe3;*/}
 
 li, a, button { font-family: "Open Sans Regular", "Jost Regular", sans-serif;
 	font-weight: 500;
@@ -17,7 +18,7 @@ li, a, button { font-family: "Open Sans Regular", "Jost Regular", sans-serif;
 	color: #000000;
 	text-decoration: none;}
 
-h1 { margin-left: 15px; 
+h1 { margin: 0 0 10px 0;
 	color: #000000;
   	font-size: 2em;
   	text-align: left;}
@@ -41,7 +42,6 @@ header { display: flex;
 
 .nav__links li a:hover { color: #e00122;}
 
-
 button { padding: 10px 25px;
 	background-color: rgba(224, 1, 34, 1);
 	color:#ffffff;
@@ -49,15 +49,275 @@ button { padding: 10px 25px;
 	border: none;
 	border-radius: 50px;
 	cursor: pointer;
-	transition: all 0.3s ease 0s;}
+	transition: all 0.3s ease 0s;
+	margin-top: 10px;
+	margin-bottom: 10px;}
 
-button:hover {background-color: rgba(167, 165, 170, 0.8);}
+button:hover {background-color: #b8011c;}
+
+/*.category-buttons{ margin-top: 20px;
+	margin-bottom: 20px;}*/
+
+.filter-button {padding: 6px 15px;
+	margin-top: 0;
+	margin-bottom: 8px;
+	margin-right: 5px;
+	background-color: #ffffff;
+	color:#e00122;
+	font-weight: 500;
+	border: 2px solid #e00122;
+	border-radius: 50px;
+	cursor: pointer;
+	transition: all 0.3s ease 0s;}
+.filter-button.active { background-color:#e00122;
+	color: #ffffff;
+	border: none;
+	box-shadow: 0 0 5px rgba(167, 165, 170, 0.4);}
+.filter-button.active:hover{ background-color: #b8011c;
+	color: #ffffff;}
+.filter-button:not(.active):hover{ background-color: #a7a5aa;
+	color: #ffffff;}
 
 .container { margin-left: 10px;
   background-color: #ffffff;
   width: 100%;
   max-width: 98%;
-  padding: 20px;
-  box-shadow: 3px 3px 3px #a7a5aa;
-  border: 1px solid #e0dfe3}
+  padding: 10px 20px 20px 20px;
+  /*box-shadow: 3px 3px 3px #a7a5aa;
+  border: 1px solid #e0dfe3;*/} /*e0dfe3 vs red*/
 
+#columns { display: flex;
+	min-height: 500px;}
+.column { flex: 1;
+	padding: 10px 10px 10px 0;
+	border: 1px solid #ffffff;} /*ffffff vs blue*/
+.column:last-child { text-align: center;}
+
+.search-container { width: 550px;
+	min-width: 550px;
+	max-width: 550px;
+	margin: auto;
+	margin-bottom: 8px;}
+.search-form { display: flex;
+	gap: 10px;}
+.search-box { flex: 1;
+	padding: 12px;
+	border: 2px solid #a7a5aa;
+	border-radius: 6px;
+	font-size: 16px;
+	outline: none;}
+.search-box:focus { border-color:#000000;
+	box-shadow: 0 0 5px rgba(0, 0, 0, 0.4);}
+.search-button { padding: 12px 20px;
+	background-color: #e00122;
+	color:#ffffff;
+	border: none;
+	border-radius: 6px;
+	cursor: pointer;
+	margin-top: 0;
+	margin-bottom: 0;}
+.search-button:hover{ background-color: #b8011c;}
+
+.category-buttons .filter-button {
+    background-color: #ffffff;
+    color: #e00122;
+    border: 2px solid #e00122;
+    border-radius: 50px;}
+.category-buttons .filter-button.active {
+    background-color: #e00122;
+    color: #ffffff;
+    border: none;}
+.category-buttons .filter-button.active:hover {
+    background-color: #b8011c;
+    color: #ffffff;
+    border: none;}
+
+.meal-controls { display: flex;
+    align-items: center;
+    gap: 10px;}
+.meal-controls span {
+font-weight: bold;
+min-width: 20px;
+text-align: center;}
+.meal-controls button { width: 35px;
+    height: 35px;
+    padding: 0;
+    border-radius: 50%;}
+.remove { background-color: #a7a5aa;}
+.remove:hover { background-color: #333333;}
+
+.food-item {display: flex;
+    justify-content: space-between;
+    align-items: center;}
+.food-info {flex: 1;}
+.add-item {width: 40px;
+    height: 40px;
+    padding: 0;
+    margin-left: 15px;
+    flex-shrink: 0;
+    font-size: 20px;
+    font-weight: bold;}
+
+.food-card { background-color: #ffffff;
+    border: 1px solid #a7a5aa;
+    border-radius: 12px;
+    margin-bottom: 12px;
+    padding: 15px 20px;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.12);
+    transition: transform 0.2s ease,
+                box-shadow 0.2s ease;}
+.food-card h2 { margin-bottom: 4px;
+    font-size: 1.1rem;}
+.food-card p { color: #333333;}
+
+#total-calories {
+    font-size: 28px;
+    font-weight: bold;
+    color: #e00122;
+    margin-bottom: 10px;}
+
+
+.nutrition-container {width: 350px;
+    height: 350px;
+    margin: 0 auto;}
+
+/* OUTER RING - CARBS */
+.carbs { position: absolute;
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    background:
+        conic-gradient(#e00122 0deg 259deg,
+            #e4e7eb 259deg 360deg);
+    display: flex;
+    justify-content: center;
+    align-items: center;}
+
+/* MIDDLE RING - PROTEIN */
+.protein { width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background:
+        conic-gradient( #f3f3f3 0deg 270deg,
+            #e4e7eb 270deg 360deg);
+    display: flex;
+    justify-content: center;
+    align-items: center;}
+
+/* INNER RING - FAT */
+.fat { width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background:
+        conic-gradient(#333333 0deg 292deg,
+            #e4e7eb 292deg 360deg);
+    display: flex;
+    justify-content: center;
+    align-items: center;}
+
+/* CENTER CIRCLE */
+.center-circle { width: 100px;
+    height: 100px;
+    background: white;
+    border-radius: 50%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-shadow: 0 0 20px rgba(0,0,0,.08);}
+.flame { font-size: 16px;
+    margin-bottom: 2px;}
+.center-circle h1 { font-size: 24px;
+    color: #0f172a;
+    line-height: 1;}
+.center-circle h2 { font-size: 12px;
+    color: #475569;
+    margin-top: 5px;}
+.center-circle p {
+    font-size: 10px;
+    color: #64748b;
+    margin-top: 2px;}
+.cal-percent { font-size: 18px;
+    font-weight: bold;
+    margin-top: 2px;
+    color: #0f172a;}
+
+/* ==================
+SUMMARY
+================== */
+
+.nutrition-summary { display: flex;
+	flex-wrap: wrap;
+	gap: 6px;
+    margin-top: 5px;
+    margin-bottom: 0;}
+.stat { min-width: 100px;
+    margin-bottom: 0;}
+.stat h3 { font-size: 16px;
+    margin-bottom: 4px;}
+.stat p { font-size: 12px;
+    color: #475569;
+    margin-bottom: 4px;}
+.stat span { font-size: 16px;
+    font-weight: bold;}
+.fat-color { color: #333333;}
+.protein-color { color: #333333;}
+.carb-color { color: #e00122;}
+
+.carbs {--percent: 72;
+    background:
+        conic-gradient( #e00122 calc(var(--percent) * 3.6deg),
+            #e4e7eb 0);}
+
+.center-circle {display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;   /* Horizontal centering */
+    text-align: center;}
+
+.center-circle h1,
+.center-circle h2,
+.center-circle p,
+.center-circle span {margin: 0;
+    text-align: center;}
+.flame {font-size: 16px;
+margin-bottom: 2px;}
+.center-circle h1 {font-size: 24px;
+line-height: 1;
+margin-bottom: 2px;}
+.center-circle h2 {font-size: 12px;
+margin-bottom: 2px;}
+.center-circle p {font-size: 10px;
+margin-bottom: 2px;}
+.cal-percent {font-size: 16px;
+margin-top: 2px;}
+
+Also, your center circle is currently only:
+
+CSS
+.center-circle {width: 100px;
+height: 100px;}
+
+.nutrition-column {display: flex;
+    flex-direction: column;
+    gap: 20px;}
+.nutrition-widget,
+.nutrition-totals,
+.meal-location { border: 1px solid #a7a5aa;
+    border-radius: 12px;
+    background: #ffffff;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.12);
+    padding: 15px 15px 15px 15px;
+    margin-bottom: 20;}
+
+
+.nutrition-summary { width: 100%;
+    margin-top: 5px;
+    margin-bottom: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    text-align: center;}
+
+.meal-location p { margin-bottom: 6px;}
