@@ -10,6 +10,7 @@ const port = process.env.PORT || 3000;
 app.use(cors());
 app.use(express.json());
 
+/** Execute a query and send its rows, converting database errors to an HTTP response. */
 const respondWithRows = async (response, query, values = []) => {
   try {
     const result = await pool.query(query, values);
@@ -23,11 +24,13 @@ const respondWithRows = async (response, query, values = []) => {
   }
 };
 
+/** Return a positive integer ID, or null when the supplied value is invalid. */
 const parsePositiveId = (value) => {
   const id = Number(value);
   return Number.isSafeInteger(id) && id > 0 ? id : null;
 };
 
+/** Validate a YYYY-MM-DD date, including impossible calendar dates. */
 const isValidDate = (value) => {
   if (typeof value !== "string" || !/^\d{4}-\d{2}-\d{2}$/.test(value)) {
     return false;
@@ -76,9 +79,145 @@ app.get("/api/dining-halls", (_request, response) => {
   return respondWithRows(response, "SELECT * FROM public.dining_halls ORDER BY dining_hall_id");
 });
 
-/** Returns all meals, most recent first. */
+/** Returns meals newest-first, including their food names alphabetized within each meal. */
 app.get("/api/meals", (_request, response) => {
-  return respondWithRows(response, "SELECT * FROM public.meals ORDER BY created_at DESC");
+  return respondWithRows(response, `
+    SELECT meal.*,
+      COALESCE((
+        SELECT json_agg(json_build_object(
+          'food_item_id', food_item.food_item_id,
+          'name', food_item.name,
+          'quantity', meal_item.quantity
+        ) ORDER BY LOWER(food_item.name), food_item.name, food_item.food_item_id)
+        FROM public.meal_items AS meal_item
+        JOIN public.food_items AS food_item
+          ON food_item.food_item_id = meal_item.food_item_id
+        WHERE meal_item.meal_id = meal.meal_id
+      ), '[]'::json) AS food_items
+    FROM public.meals AS meal
+    ORDER BY meal.created_at DESC, meal.meal_id DESC
+  `);
+});
+
+/** Creates a meal for the demo user, deriving its nutrition from the selected database foods. */
+app.post("/api/meals", async (request, response) => {
+  const demoUserId = 2;
+  const { foodItems, mealName: requestedMealName } = request.body ?? {};
+
+  // Trim the optional name; an empty value will use the generated meal ID as its default.
+  if (requestedMealName !== undefined && typeof requestedMealName !== "string") {
+    return response.status(400).json({ message: "mealName must be a string." });
+  }
+  const trimmedMealName = requestedMealName?.trim() ?? "";
+  if (trimmedMealName.length > 150) {
+    return response.status(400).json({ message: "mealName must be 150 characters or fewer." });
+  }
+
+  if (!Array.isArray(foodItems) || foodItems.length === 0) {
+    return response.status(400).json({ message: "foodItems must contain at least one food item." });
+  }
+
+  // Combine repeated food IDs so each food is stored once with its total quantity.
+  const quantitiesByFoodId = new Map();
+  for (const item of foodItems) {
+    const foodItemId = parsePositiveId(item?.food_item_id);
+    const quantity = item?.quantity;
+    if (foodItemId === null || !Number.isSafeInteger(quantity) || quantity <= 0) {
+      return response.status(400).json({ message: "Each food item must have a valid food_item_id and positive integer quantity." });
+    }
+    quantitiesByFoodId.set(foodItemId, (quantitiesByFoodId.get(foodItemId) ?? 0) + quantity);
+  }
+
+  const foodItemIds = [...quantitiesByFoodId.keys()];
+  let client;
+
+  try {
+    // Keep the meal row and all item rows atomic: either every insert succeeds or none do.
+    client = await pool.connect();
+    await client.query("BEGIN");
+
+    const userResult = await client.query(
+      "SELECT user_id FROM public.users WHERE user_id = $1",
+      [demoUserId]
+    );
+    if (userResult.rowCount === 0) {
+      await client.query("ROLLBACK");
+      return response.status(400).json({ message: "Demo user with id 2 does not exist." });
+    }
+
+    // Load nutrition from the database instead of trusting values submitted by the browser.
+    const foodResult = await client.query(
+      "SELECT food_item_id, calories, protein_g, carbs_g, fat_g FROM public.food_items WHERE food_item_id = ANY($1::int[])",
+      [foodItemIds]
+    );
+    if (foodResult.rowCount !== foodItemIds.length) {
+      await client.query("ROLLBACK");
+      return response.status(400).json({ message: "One or more food items do not exist." });
+    }
+
+    const totals = foodResult.rows.reduce((sum, foodItem) => {
+      const quantity = quantitiesByFoodId.get(foodItem.food_item_id);
+      sum.calories += Number(foodItem.calories ?? 0) * quantity;
+      sum.protein += Number(foodItem.protein_g ?? 0) * quantity;
+      sum.carbs += Number(foodItem.carbs_g ?? 0) * quantity;
+      sum.fat += Number(foodItem.fat_g ?? 0) * quantity;
+      return sum;
+    }, { calories: 0, protein: 0, carbs: 0, fat: 0 });
+
+    // Insert first to obtain the generated ID, then apply either the custom or default name.
+    const mealResult = await client.query(`
+      INSERT INTO public.meals (
+        user_id, meal_name, total_calories, total_protein, total_carbs, total_fat
+      )
+      VALUES ($1, 'Meal', $2, $3, $4, $5)
+      RETURNING meal_id
+    `, [
+      demoUserId,
+      totals.calories,
+      totals.protein.toFixed(2),
+      totals.carbs.toFixed(2),
+      totals.fat.toFixed(2)
+    ]);
+    const mealId = mealResult.rows[0].meal_id;
+    const mealName = trimmedMealName || `Meal ${mealId}`;
+
+    await client.query(
+      "UPDATE public.meals SET meal_name = $1 WHERE meal_id = $2",
+      [mealName, mealId]
+    );
+
+    // Save each selected food and quantity before committing the completed meal.
+    for (const [foodItemId, quantity] of quantitiesByFoodId) {
+      await client.query(
+        "INSERT INTO public.meal_items (meal_id, food_item_id, quantity) VALUES ($1, $2, $3)",
+        [mealId, foodItemId, quantity]
+      );
+    }
+
+    await client.query("COMMIT");
+    return response.status(201).json({
+      meal_id: mealId,
+      meal_name: mealName,
+      user_id: demoUserId,
+      total_calories: totals.calories,
+      total_protein: Number(totals.protein.toFixed(2)),
+      total_carbs: Number(totals.carbs.toFixed(2)),
+      total_fat: Number(totals.fat.toFixed(2)),
+      food_items: foodResult.rows.map((foodItem) => ({
+        food_item_id: foodItem.food_item_id,
+        quantity: quantitiesByFoodId.get(foodItem.food_item_id)
+      }))
+    });
+  } catch (error) {
+    if (client) {
+      // Undo any partial writes if validation or a database operation fails mid-transaction.
+      await client.query("ROLLBACK").catch(() => {});
+    }
+    console.error("Meal creation failed:", error);
+    return response.status(500).json({ message: "Meal creation failed." });
+  } finally {
+    client?.release();
+  }
 });
 
 /** Returns food items with an availability record for the specified dining hall. */
