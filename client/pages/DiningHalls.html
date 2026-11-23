@@ -11,103 +11,197 @@
 
 	<body>
 		<div id="wrapper">
-		<header>
-			<img class="logo" src="MUC_Logo.svg" alt="Meals U Craft Logo"
-			<nav>
-				<ul class="nav__links">
-					<li><a href="index.html">Home</a></li>
-					<li><a href="Menu.html">Menu</a></li>
-					<li><a href="Explore.html">Explore</a></li>
-					<li><a href="DiningHalls.html">Dining Halls</a></li>
-					<li><a href="Profile.html">Profile</a></li>
-				</ul>
-			</nav>
-		</header>
-		</div>
+        <header>
+            <img class="logo" src="MUC_Logo.svg" alt="Meals U Craft Logo"
+            <nav>
+                <ul class="nav__links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="Menu.html">Menu</a></li>
+                    <li><a href="Explore.html">Explore</a></li>
+                    <li><a href="DiningHalls.html">Dining Halls</a></li>
+                    <li><a href="Profile.html">Profile</a></li>
+                    <li><a href="AI.html">Meal Assistant</a></li>
+                </ul>
+            </nav>
+        </header>
+        </div>
 		
-		<h1>Resident Dining Halls</h1>
-		<div class="container">
-			<h2>Center Court</h2>
-			<p>Campus Recreation Center</p>
-			<p>Hours:</p>
-			<p>Monday - Friday</p>
-			<p>Lunch: 10:30 AM - 4:30 PM</p>
-			<p>Dinner: 4:30 PM - 8:00 PM</p>
-			<p>Late Night: 8:00 PM - 10:00 PM</p>
-			<p>Saturday & Sunday</p>
-			<p>Closed</p>
-			<button>View Menu</button>
-		</div>
 		
-		<div class="container">
-			<h2>MarketPointe</h2>
-			<p>Siddal Hall</p>
-			<p>Hours:</p>
-			<p>Monday - Friday</p>
-			<p>Breakfast: 7:00 AM - 10:30 AM</p>
-			<p>Lunch: 10:30 AM - 4:30 PM</p>
-			<p>Dinner: 4:30 PM - 8:00 PM</p>
-			<p>Saturday & Sunday</p>
-			<p>Brunch: 8:00 AM - 4:30 AM</p>
-			<p>Dinner: 4:30 PM - 8:00 PM</p>
-			<button>View Menu</button>
-		</div>		
-		
-		<div class="container">
-			<h2>On The Green</h2>
-			<p>Marian Spencer Hall</p>
-			<p>Hours:</p>
-			<p>Monday - Friday</p>
-			<p>Breakfast: 7:00 AM - 10:30 AM</p>
-			<p>Lunch: 10:30 AM - 4:30 PM</p>
-			<p>Dinner: 4:30 PM - 8:00 PM</p>
-			<p>Saturday & Sunday</p>
-			<p>Brunch: 9:00 AM - 4:30 AM</p>
-			<p>Dinner: 4:30 PM - 8:00 PM</p>
-			<button>View Menu</button>
-		</div>	
-		
-		<h1>Cafes</h1>
-		<div class="container">
-			<h2>Bearcats Social</h2>
-			<p>Campus Recreation Center</p>
-			<p>Hours:</p>
-			<p>Monday - Friday</p>
-			<p>Lunch: 10:30 AM - 4:30 PM</p>
-			<p>Dinner: 4:30 PM - 8:00 PM</p>
-			<p>Late Night: 8:00 PM - 10:00 PM</p>
-			<p>Saturday & Sunday</p>
-			<p>Closed</p>
-			<button>View Menu</button>
-		</div>
-		
-		<div class="container">
-			<h2>Stadium View</h2>
-			<p>Siddal Hall</p>
-			<p>Hours:</p>
-			<p>Monday - Friday</p>
-			<p>Breakfast: 7:00 AM - 10:30 AM</p>
-			<p>Lunch: 10:30 AM - 4:30 PM</p>
-			<p>Dinner: 4:30 PM - 8:00 PM</p>
-			<p>Saturday & Sunday</p>
-			<p>Brunch: 8:00 AM - 4:30 AM</p>
-			<p>Dinner: 4:30 PM - 8:00 PM</p>
-			<button>View Menu</button>
-		</div>		
-		
-		<div class="container">
-			<h2>The 86 COffee Bar</h2>
-			<p>Marian Spencer Hall</p>
-			<p>Hours:</p>
-			<p>Monday - Friday</p>
-			<p>Breakfast: 7:00 AM - 10:30 AM</p>
-			<p>Lunch: 10:30 AM - 4:30 PM</p>
-			<p>Dinner: 4:30 PM - 8:00 PM</p>
-			<p>Saturday & Sunday</p>
-			<p>Brunch: 9:00 AM - 4:30 AM</p>
-			<p>Dinner: 4:30 PM - 8:00 PM</p>
-			<button>View Menu</button>
-		</div>	
+<main class="dining-page">
+
+    <section class="dining-section">
+
+        <h1>Resident Dining Halls</h1>
+
+        <div class="dining-grid">
+
+            <!-- MarketPointe -->
+            <article class="dining-card">
+                <img src="media/marketpointe.jpg"
+                     alt="MarketPointe dining hall">
+
+                <h2>MarketPointe</h2>
+                <p class="dining-location">Siddall Hall</p>
+
+                <div class="dining-hours">
+                    <h3>Hours:</h3>
+                    <p class="dining-day">Monday - Friday</p>
+                    <p>Breakfast: 7:00 AM - 10:30 AM</p>
+                    <p>Lunch: 10:30 AM - 4:30 PM</p>
+                    <p>Dinner: 4:30 PM - 8:00 PM</p>
+
+                    <p class="dining-day">Saturday & Sunday</p>
+                    <p>Brunch: 8:00 AM - 4:30 AM</p>
+                    <p>Dinner: 4:30 PM - 8:00 PM</p>
+                </div>
+
+                <a href="Menu.html" class="dining-button">
+                    View Menu
+                </a>
+            </article>
+
+            <!-- On The Green -->
+            <article class="dining-card">
+                <img src="media/on-the-green.jpg"
+                     alt="On The Green dining hall">
+
+                <h2>On The Green</h2>
+                <p class="dining-location">Marian Spencer Hall</p>
+
+                <div class="dining-hours">
+                    <h3>Hours:</h3>
+                    <p class="dining-day">Monday - Friday</p>
+                    <p>Breakfast: 7:00 AM - 10:30 AM</p>
+                    <p>Lunch: 10:30 AM - 4:30 PM</p>
+                    <p>Dinner: 4:30 PM - 8:00 PM</p>
+
+                    <p class="dining-day">Saturday & Sunday</p>
+                    <p>Brunch: 9:00 AM - 4:30 AM</p>
+                    <p>Dinner: 4:30 PM - 8:00 PM</p>
+                </div>
+
+                <a href="Menu.html" class="dining-button">
+                    View Menu
+                </a>
+            </article>
+
+            <!-- Center Court -->
+            <article class="dining-card">
+                <img src="media/center-court.jpg"
+                     alt="Center Court dining hall">
+
+                <h2>Center Court</h2>
+                <p class="dining-location">
+                    Campus Recreation Center
+                </p>
+
+                <div class="dining-hours">
+                    <h3>Hours:</h3>
+                    <p class="dining-day">Monday - Friday</p>
+                    <p>Lunch: 10:30 AM - 4:30 PM</p>
+                    <p>Dinner: 4:30 PM - 8:00 PM</p>
+                    <p>Late Night: 8:00 PM - 10:00 PM</p>
+
+                    <p class="dining-day">Saturday & Sunday</p>
+                    <p>Closed</p>
+                </div>
+
+                <a href="Menu.html" class="dining-button">
+                    View Menu
+                </a>
+            </article>
+
+        </div>
+    </section>
+
+
+    <section class="dining-section">
+
+        <h1>Cafes</h1>
+
+        <div class="dining-grid">
+
+            <!-- Stadium View -->
+            <article class="dining-card">
+                <img src="media/stadium-view.jpg"
+                     alt="Stadium View dining area">
+
+                <h2>Stadium View</h2>
+                <p class="dining-location">Siddall Hall</p>
+
+                <div class="dining-hours">
+                    <h3>Hours:</h3>
+                    <p class="dining-day">Monday - Friday</p>
+                    <p>Breakfast: 7:00 AM - 10:30 AM</p>
+                    <p>Lunch: 10:30 AM - 4:30 PM</p>
+                    <p>Dinner: 4:30 PM - 8:00 PM</p>
+
+                    <p class="dining-day">Saturday & Sunday</p>
+                    <p>Brunch: 8:00 AM - 4:30 AM</p>
+                    <p>Dinner: 4:30 PM - 8:00 PM</p>
+                </div>
+
+                <a href="Menu.html" class="dining-button">
+                    View Menu
+                </a>
+            </article>
+
+            <!-- The 86 Coffee Bar -->
+            <article class="dining-card">
+                <img src="media/coffee-bar.jpg"
+                     alt="The 86 Coffee Bar">
+
+                <h2>The 86 Coffee Bar</h2>
+                <p class="dining-location">Marian Spencer Hall</p>
+
+                <div class="dining-hours">
+                    <h3>Hours:</h3>
+                    <p class="dining-day">Monday - Friday</p>
+                    <p>Breakfast: 7:00 AM - 10:30 AM</p>
+                    <p>Lunch: 10:30 AM - 4:30 PM</p>
+                    <p>Dinner: 4:30 PM - 8:00 PM</p>
+
+                    <p class="dining-day">Saturday & Sunday</p>
+                    <p>Brunch: 9:00 AM - 4:30 AM</p>
+                    <p>Dinner: 4:30 PM - 8:00 PM</p>
+                </div>
+
+                <a href="Menu.html" class="dining-button">
+                    View Menu
+                </a>
+            </article>
+
+            <!-- Bearcats Social -->
+            <article class="dining-card">
+                <img src="media/bearcats-social.jpg"
+                     alt="Bearcats Social cafe">
+
+                <h2>Bearcats Social</h2>
+                <p class="dining-location">
+                    Campus Recreation Center
+                </p>
+
+                <div class="dining-hours">
+                    <h3>Hours:</h3>
+                    <p class="dining-day">Monday - Friday</p>
+                    <p>Lunch: 10:30 AM - 4:30 PM</p>
+                    <p>Dinner: 4:30 PM - 8:00 PM</p>
+                    <p>Late Night: 8:00 PM - 10:00 PM</p>
+
+                    <p class="dining-day">Saturday & Sunday</p>
+                    <p>Closed</p>
+                </div>
+
+                <a href="Menu.html" class="dining-button">
+                    View Menu
+                </a>
+            </article>
+
+        </div>
+    </section>
+
+</main>
+
 		
 	</body>
 </html>

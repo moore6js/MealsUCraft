@@ -10,7 +10,35 @@
 		<link rel="icon" type="image/png" href="favicon.png">
 	</head>
 
+
+
 <body>
+
+	<!-- Meal Assistant Modal -->
+<div id="mealAssistantModal" class="modal">
+    <div class="modal-content">
+        <span class="close-modal">&times;</span>
+
+        <h2>Meal Assistant</h2>
+
+        <div class="assistant-search">
+            <input
+                type="text"
+                id="assistantInput"
+                placeholder="Ask me about meals, calories, protein, dining halls..."
+            >
+            <button id="assistantSearchBtn">
+                Search
+            </button>
+        </div>
+
+        <div id="assistantResults">
+            How can I help build your meal today?
+        </div>
+    </div>
+</div>
+
+
 	<main>
 		<div id="wrapper">
 		<header>
@@ -22,7 +50,7 @@
 					<li><a href="Explore.html">Explore</a></li>
 					<li><a href="DiningHalls.html">Dining Halls</a></li>
 					<li><a href="Profile.html">Profile</a></li>
-					<li><a href="AI.html">Meal Assistant</a></li>
+					<li><a href="#" id="mealAssistantLink">Meal Assistant</a></li>
 				</ul>
 			</nav>
 		</header>
@@ -169,12 +197,23 @@ buttons.forEach(button => {
 const menuContainer =
     document.getElementById("menu-items");
 
+//fetch("foods.json")
+  //  .then(response => response.json())
 fetch("foods.json")
-    .then(response => response.json())
+    .then(response => {
+        console.log("Response:", response);
+
+        if (!response.ok) {
+            throw new Error("Could not load foods.json");
+        }
+
+        return response.json();
+    })
     .then(data => {
+        console.log("Food data:", data);
 
         data.forEach(food => {
-
+          
             const foodCard =
                 document.createElement("div");
 
@@ -186,7 +225,7 @@ fetch("foods.json")
 						<h2>${food.name}</h2>
 						<p>
 							${food.calories} cal |
-    						${food.protein}g protein
+							${food.protein}g protein
 						</p>
 					</div>
 
@@ -232,6 +271,10 @@ fetch("foods.json")
 
         });
 
+    })
+
+    .catch(error => {
+        console.error("FETCH ERROR:", error);
     });
 
 const meal = {};
@@ -271,27 +314,25 @@ function renderMeal() {
        item.classList.add("container", "food-card");
 
         item.innerHTML = `
-			<div class="food-item">
+    <div class="food-item">
+        <div class="food-info">
+            <h2>${food.name}</h2>
 
-				<div class="food-info">
-					<h2>${food.name}</h2>
+            <p>
+                ${food.calories * food.quantity} cal |
+                ${food.protein * food.quantity}g protein |
+                ${food.carbs * food.quantity}g carbs |
+                ${food.fat * food.quantity}g fat
+            </p>
+        </div>
 
-					<p>
-						${food.calories * food.quantity} cal |
-						${food.protein * food.quantity}g protein |
-						${food.carbs * food.quantity}g carbs |
-						${food.fat * food.quantity}g fat
-					</p>
-				</div>
-
-				<div class="meal-controls">
-					<button class="minus">−</button>
-					<span>${food.quantity}</span>
-					<button class="plus">+</button>
-				</div>
-
-			</div>
-		`;
+        <div class="meal-controls">
+            <button class="minus">−</button>
+            <span>${food.quantity}</span>
+            <button class="plus">+</button>
+        </div>
+    </div>
+`;
 
         item.querySelector(".plus")
             .addEventListener("click", () => {
@@ -320,27 +361,86 @@ function renderMeal() {
 			}
 
 			document.getElementById("total-calories").textContent =
-				`${totalCalories} cal`;
+			`${totalCalories} cal`;
 
 			document.getElementById("total-protein").textContent =
-				`Protein: ${totalProtein}g`;
+			`Protein: ${totalProtein}g`;
 
 			document.getElementById("total-carbs").textContent =
-				`Carbs: ${totalCarbs}g`;
+			`Carbs: ${totalCarbs}g`;
 
 			document.getElementById("total-fat").textContent =
-				`Fat: ${totalFat}g`;
+			`Fat: ${totalFat}g`;
 
 			document.getElementById("total-fiber").textContent =
-				`Fiber: ${totalFiber}g`;
+			`Fiber: ${totalFiber}g`;
 
 			document.getElementById("total-sodium").textContent =
-				`Sodium: ${totalSodium}mg`;
+			`Sodium: ${totalSodium}mg`;
 		}
 
-const carbsPercent = (carbsConsumed / carbsGoal) * 100;
-const proteinPercent = (proteinConsumed / proteinGoal) * 100;
-const fatPercent = (fatConsumed / fatGoal) * 100;
+//const carbsPercent = (carbsConsumed / carbsGoal) * 100;
+//const proteinPercent = (proteinConsumed / proteinGoal) * 100;
+//const fatPercent = (fatConsumed / fatGoal) * 100;
+
+const mealAssistantLink =
+    document.getElementById("mealAssistantLink");
+const mealAssistantModal =
+    document.getElementById("mealAssistantModal");
+const closeModal =
+    document.querySelector(".close-modal");
+mealAssistantLink.addEventListener("click", function (e) {
+    e.preventDefault();
+    mealAssistantModal.style.display = "flex";
+});
+closeModal.addEventListener("click", function () {
+    mealAssistantModal.style.display = "none";
+});
+window.addEventListener("click", function (e) {
+    if (e.target === mealAssistantModal) {
+        mealAssistantModal.style.display = "none";
+    }
+});
+
+document
+    .getElementById("assistantSearchBtn")
+    .addEventListener("click", function() {
+
+        const question =
+            document.getElementById("assistantInput").value
+                .toLowerCase();
+
+        const results =
+            document.getElementById("assistantResults");
+
+        if (question.includes("protein")) {
+
+            results.innerHTML =
+                "<strong>Suggestion:</strong> Add grilled chicken, eggs, or Greek yogurt for more protein.";
+
+        }
+        else if (question.includes("calories")) {
+
+            results.innerHTML =
+                "Current calories: " +
+                document.getElementById("total-calories").textContent;
+
+        }
+        else if (question.includes("carbs")) {
+
+            results.innerHTML =
+                document.getElementById("total-carbs").textContent;
+
+        }
+        else {
+
+            results.innerHTML =
+                "Try asking about calories, protein, carbs, fat, fiber, or healthy meal ideas.";
+
+        }
+
+    });
+
 </script>
 
 </body>
