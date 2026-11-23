@@ -1,88 +1,196 @@
 <!DOCTYPE html>
-
 <html lang="en">
 	<head>
 		<meta charset="utf-8">
-		<title>Home</title>
-		<meta name="description" content="">
+		<title>MealsUCraft - Build a Meal</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<link href="MUC.css" rel="stylesheet">
+		<link href="Home.css" rel="stylesheet">
 		<link rel="icon" type="image/png" href="favicon.png">
 	</head>
 
-	<body>
-		<div id="wrapper">
-		<header>
-			<img class="logo" src="MUC_Logo.svg" alt="Meals U Craft Logo"
-			<nav>
+	<body class="home-page">
+		<header class="home-header">
+			<a href="Home.html" aria-label="MealsUCraft home">
+				<img class="logo" src="MUC_Logo.svg" alt="">
+			</a>
+			<nav aria-label="Main navigation">
 				<ul class="nav__links">
 					<li><a href="index.html">Home</a></li>
 					<li><a href="Menu.html">Menu</a></li>
 					<li><a href="Explore.html">Explore</a></li>
 					<li><a href="DiningHalls.html">Dining Halls</a></li>
 					<li><a href="Profile.html">Profile</a></li>
+					<li><a href="AI.html">Meal Assistant</a></li>
 				</ul>
 			</nav>
 		</header>
-		</div>
-		
-		<div class="container">
-			<h1>Build a meal that's yours.</h1>
-			<p>Pick your dining hall, explore the menu, and find your balance.</p>
-			<p>01 Build your meal</p>
-			<p>> 02 Review & save</p>
-		</div>
-		
-		<div class="container">
-			<h2>Dining Hall</h2>
-			<h2>Meal Period</h2>
-			<h2>Menu Date</h2>
-		</div>
-		
-		<div class="container">
-			<h1>On the menu</h1>
-			<p>Search menu items</p>
-			<h2>All Items</h2>
-			<h2>Entrees</h2>
-			<h2>Sides</h2>
-			<h2>Fruits & desserts</h2>
-			<h2>Dietary Filters</h2>
-		</div>
-		
-		<div class="container">
-			<h2>Grilled Chicken Breast</h2>
-			<p>250 cal | 45g protein</p>
-			<<button>Add to meal</button>
-		</div>
-		
-		<div class="container">
-			<h2>Fresh Fruit Bowl</h2>
-			<p>250 cal | 45g protein</p>
-			<button>Add to meal</button>
-		</div>
-		
-		<div class="container">
-			<h2>Cheese Pizza</h2>
-			<p>210 cal | 5g protein</p>
-			<button>Add to meal</button>
-		</div>
-		
-		<div class="container">
-			<h2>Roasted Vegetables</h2>
-			<p>120 cal | 3g protein</p>
-			<button>Add to meal</button>
-		</div>
-		
-		<div class="container">
-			<h2>Lemon Herb Quinoa</h2>
-			<p>180 cal | 6g protein</p>
-			<button>Add to meal</button>
-		</div>
-		
-		<div class="container">
-			<h2>Greek Yogurt Parfait</h2>
-			<p>320 cal | 12g protein</p>
-			<button>Add to meal</button>
-		</div>
+
+		<main class="home-main">
+			<section class="home-intro" aria-labelledby="home-title">
+				<div>
+					<h1 id="home-title">Build a meal that's yours.</h1>
+					<p>Pick your dining hall, explore the menu, and find your balance.</p>
+				</div>
+				<ol class="build-steps" aria-label="Meal building steps">
+					<li class="current-step"><span>01</span> Build your meal</li>
+					<li class="step-divider" aria-hidden="true">&rsaquo;</li>
+					<li><span>02</span> Review &amp; save</li>
+				</ol>
+			</section>
+
+			<section class="meal-settings" aria-label="Meal details">
+				<div class="setting-field">
+					<label for="dining-hall">Dining hall</label>
+					<select id="dining-hall" name="dining-hall">
+						<option>CenterCourt</option>
+						<option>On the Green</option>
+						<option>MarketPointe</option>
+						<option>TUC</option>
+					</select>
+				</div>
+
+				<fieldset class="setting-field meal-period">
+					<legend>Meal period</legend>
+					<div class="period-options">
+						<label><input type="radio" name="meal-period" value="breakfast"><span>Breakfast</span></label>
+						<label><input type="radio" name="meal-period" value="lunch" checked><span>Lunch</span></label>
+						<label><input type="radio" name="meal-period" value="dinner"><span>Dinner</span></label>
+					</div>
+				</fieldset>
+
+				<div class="setting-field">
+					<label for="menu-date">Menu date</label>
+					<select id="menu-date" name="menu-date">
+						<option>Today - Tue, Oct 13</option>
+						<option>Tomorrow - Wed, Oct 14</option>
+					</select>
+				</div>
+			</section>
+
+			<div class="home-dashboard">
+				<section class="menu-section" aria-labelledby="menu-heading">
+					<div class="menu-toolbar">
+						<div class="menu-title">
+							<h2 id="menu-heading">On the menu</h2>
+							<span>6 items</span>
+						</div>
+						<div class="menu-search">
+							<input type="search" placeholder="Search menu items" aria-label="Search menu items">
+						</div>
+					</div>
+
+					<div class="menu-filters">
+						<div class="category-filters" role="group" aria-label="Filter menu by category">
+							<button class="category-chip selected" type="button">All items</button>
+							<button class="category-chip" type="button">Mains</button>
+							<button class="category-chip" type="button">Sides</button>
+							<button class="category-chip" type="button">Fruit &amp; desserts</button>
+						</div>
+						<button class="dietary-filter" type="button">Dietary filters <span aria-hidden="true">&darr;</span></button>
+					</div>
+
+					<div class="food-grid">
+						<article class="food-card">
+							<h3>Grilled Chicken Bowl</h3>
+							<p class="food-serving">1 bowl - 320 g</p>
+							<p class="food-nutrition">476 cal <span>&middot;</span> 38 g protein</p>
+							<div class="food-tags"><span>Protein-rich</span><small>Contains soy</small></div>
+							<button class="food-action" type="button">Add to meal</button>
+						</article>
+
+						<article class="food-card">
+							<h3>Fresh Fruit Bowl</h3>
+							<p class="food-serving">1 bowl - 200 g</p>
+							<p class="food-nutrition">120 cal <span>&middot;</span> 2 g protein</p>
+							<div class="food-tags"><span>Vegan</span><small>No major allergens</small></div>
+							<button class="food-action" type="button">Add to meal</button>
+						</article>
+
+						<article class="food-card">
+							<h3>Cheese Pizza</h3>
+							<p class="food-serving">1 slice - 120 g</p>
+							<p class="food-nutrition">285 cal <span>&middot;</span> 12 g protein</p>
+							<div class="food-tags"><span>Vegetarian</span><small>Contains wheat, milk</small></div>
+							<button class="food-action" type="button">Add to meal</button>
+						</article>
+
+						<article class="food-card">
+							<h3>Roasted Vegetables</h3>
+							<p class="food-serving">1 cup - 150 g</p>
+							<p class="food-nutrition">110 cal <span>&middot;</span> 3 g protein</p>
+							<div class="food-tags"><span>Vegan</span><small>No major allergens</small></div>
+							<button class="food-action" type="button">Add to meal</button>
+						</article>
+
+						<article class="food-card">
+							<h3>Lemon Herb Quinoa</h3>
+							<p class="food-serving">1/2 cup - 140 g</p>
+							<p class="food-nutrition">190 cal <span>&middot;</span> 6 g protein</p>
+							<div class="food-tags"><span>Vegan</span><small>No major allergens</small></div>
+							<button class="food-action" type="button">Add to meal</button>
+						</article>
+
+						<article class="food-card">
+							<h3>Greek Yogurt Parfait</h3>
+							<p class="food-serving">1 cup - 180 g</p>
+							<p class="food-nutrition">210 cal <span>&middot;</span> 16 g protein</p>
+							<div class="food-tags"><span>Vegetarian</span><small>Contains milk, wheat</small></div>
+							<button class="food-action" type="button">Add to meal</button>
+						</article>
+					</div>
+				</section>
+
+				<aside class="meal-summary" aria-label="Your meal">
+					<div class="summary-heading">
+						<h2>Your meal <span>2 items</span></h2>
+						<button type="button" class="clear-meal">Clear all</button>
+					</div>
+					<p class="meal-context">CenterCourt - Lunch</p>
+
+					<div class="meal-entry">
+						<div class="meal-entry-info">
+							<h3>Grilled Chicken Bowl</h3>
+							<p>1 bowl - 476 cal</p>
+						</div>
+						<button class="remove-item" type="button" aria-label="Remove Grilled Chicken Bowl">&times;</button>
+						<div class="serving-label">Servings</div>
+						<div class="quantity-control" role="group" aria-label="Grilled Chicken Bowl servings">
+							<button type="button" aria-label="Decrease servings">-</button>
+							<span>1</span>
+							<button type="button" aria-label="Increase servings">+</button>
+						</div>
+					</div>
+
+					<div class="meal-entry">
+						<div class="meal-entry-info">
+							<h3>Fresh Fruit Bowl</h3>
+							<p>1 bowl - 120 cal</p>
+						</div>
+						<button class="remove-item" type="button" aria-label="Remove Fresh Fruit Bowl">&times;</button>
+						<div class="serving-label">Servings</div>
+						<div class="quantity-control" role="group" aria-label="Fresh Fruit Bowl servings">
+							<button type="button" aria-label="Decrease servings">-</button>
+							<span>1</span>
+							<button type="button" aria-label="Increase servings">+</button>
+						</div>
+					</div>
+
+					<section class="nutrition-summary" aria-labelledby="nutrition-heading">
+						<h3 id="nutrition-heading">Nutrition summary</h3>
+						<p class="calories-total"><strong>596</strong> calories total</p>
+						<div class="macro-grid">
+							<div><strong>40 g</strong><span>Protein</span></div>
+							<div><strong>82 g</strong><span>Carbs</span></div>
+							<div><strong>12 g</strong><span>Fat</span></div>
+						</div>
+						<div class="micro-summary"><span>Fiber 11 g</span><span>Sodium 625 mg</span></div>
+					</section>
+
+					<button class="review-meal" type="button">Review My Meal <span aria-hidden="true">&rarr;</span></button>
+					<p class="review-note">Review your selections, then save as your meal.</p>
+				</aside>
+			</div>
+
+		</main>
 	</body>
 </html>
