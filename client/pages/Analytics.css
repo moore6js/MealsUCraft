@@ -1,3 +1,16 @@
+.analytics-page,
+.analytics-page * {
+    box-sizing: border-box;
+}
+
+.analytics-page {
+    margin: 0;
+    min-height: 100vh;
+    background-color: #ffffff;
+    color: #222222;
+    font-family: "Open Sans", "Jost", Arial, sans-serif;
+}
+
 .analytics-page * {
     background-color: transparent;
     font-family: "Times New Roman", Times, serif;
@@ -11,17 +24,30 @@
 }
 
 .analytics-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
     min-height: 64px;
     padding: 12px clamp(20px, 3.2vw, 44px);
     background-color: #ffffff;
     border-bottom: 1px solid #ecefeb;
+}
+.analytics-header .logo {
+    width: 140px;
+    max-height: 45px;
 }
 .analytics-header > a {
     display: inline-flex;
     align-items: center;
 }
 .analytics-page .nav__links {
+    display: flex;
+    align-items: center;
+    margin: 0;
+    padding: 0;
     gap: 30px;
+    list-style: none;
 }
 .analytics-page .nav__links li {
     padding: 0;
@@ -30,6 +56,7 @@
     color: #202620;
     font-size: 13px;
     font-weight: 600;
+    text-decoration: none;
 }
 
 .analytics-main > h1 {

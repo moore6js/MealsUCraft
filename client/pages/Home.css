@@ -1,24 +1,44 @@
+.home-page,
+.home-page * {
+    box-sizing: border-box;
+}
+
 .home-page {
     min-height: 100vh;
+    margin: 0;
     background-color: #f7f8f6;
     color: #25342c;
+    font-family: "Open Sans", "Jost", Arial, sans-serif;
 }
 .home-page * {
     background-color: transparent;
     font-family: "Times New Roman", Times, serif;
 }
 .home-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
     min-height: 64px;
     padding: 12px clamp(20px, 3.2vw, 44px);
     background-color: #ffffff;
     border-bottom: 1px solid #ecefeb;
+}
+.home-header .logo {
+    width: 140px;
+    max-height: 45px;
 }
 .home-header > a {
     display: inline-flex;
     align-items: center;
 }
 .home-page .nav__links {
+    display: flex;
+    align-items: center;
+    margin: 0;
+    padding: 0;
     gap: 30px;
+    list-style: none;
 }
 .home-page .nav__links li {
     padding: 0;
@@ -27,6 +47,7 @@
     color: #202620;
     font-size: 13px;
     font-weight: 600;
+    text-decoration: none;
 }
 
 .home-main {
